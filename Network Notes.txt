@@ -1,0 +1,123 @@
+												🛜NETWORK
+				
+			1.Physical Layer
+			2.Data-Link Layer
+			3.Network Layer
+OSI MODEL   	4.Transport Layer
+			5.Session Layer
+			6.Presentation Layer
+			7.Application Layer
+		
+Protocol Data Unit(PDU -> bit groups in each OSI layer) --> Layer1(Bit), Layer2(Frame), Layer3(Packet), Layer4(Segment)
+
+			  				| 10.0.0.0 - 10.255.255.255(10/8)
+Private Address Ranges 	-   		| 172.16.0.0 - 172.31.255.255(172.16/12)
+			  				| 192.168.0.0 - 192.168.255.255(192.168/16)
+			  
+-----------------------     -----------------------     -----------------------
+
+Network Devices👨‍💻
+
+Device - Description - Key Points
+Router - Connects networks - A router uses the software-configured network address to make forwarding decisions.
+
+Switch - Connects devices on a twisted-pair network - A switch forwards data to its destination by using the MAC address embedded in each packet. It forwards data only to nodes that need to receive it.
+
+Multilayer Switch - Functions as a awitch or router - Operates on Layers 2 and 3 of the OSI model as a switch and can perform router functionality.
+
+Firewall - Provides controlled data access between networks - Firewalls can be hardware or software based. They are an essential part of a network’s security strategy.
+
+IDS/IPS - Detects and prevents intrusions - Monitors the network and attempts to detect/prevent intrusion attempts.
+
+Load balancer - Distributes network load - Load balancing increases redundancy and performance by distributing the load to multiple servers.
+
+Proxy - Sends resource requests on behalf of network clients - Can add to the security and bandwidth efficiency of the network.
+
+Network Attached Storage (NAS) - Centralized storage device that connects to a network - Provides scalability and flexibility for the large amounts of storage today.
+
+Storage Area Network (SAN) - A high-speed network that connects storage devices to servers - Allows mulitple servers to easily and efficiently access large amounts of storage.
+
+Access Point (AP) - Enables wireless devices to connect to wireless and wired networks - Should provide the latest in security standards to help reduce security breaches.
+
+Controller - Used with branch/remote office deployments for wireless authentication - When an AP boots, it authenticates with a controller before it can start working as an AP.
+
+XXXXXXXXXXXXXXXXXXXXXXXXXX♨️Read and learn in details about CLOUDs ??????? XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx
+
+_______________			_________________	    ________________
+     -----------------------     -----------------------
+PORTS & PROTOCOLS
+	
+		| 0 - 1023 (Well-known ports)
+Ports 	| 1024 - 49151 (Registered ports)
+		| 49152 - 65535 (Used dynamically by applications)
+	
+- - -
+FTP (File Transfer Protocol) TCP/20,21 => can be used to transfer files with a remote host (which typically requires authentication of user credentials).It uses TCP ports 20 and 21 in its operation.Unfortunately, FTP users authenticate using cleartext mechanisms.
+- - -
+SFTP (Secure File Transfer Protocol) TCP/22 => provides FTP file transfer service over an SSH connection.Like SSH, this secure protocol uses TCP port 22 in its operation.
+- - -
+SSH (Secure Shell) TCP/22 => is used to securely connect to a remote host (typically via a terminal emulator).SSH uses TCP port 22 in its operation.
+- - -
+Telnet TCP/23 => is used to connect to a remote host (typically via a terminal emulator).This protocol does not provice security , so has to be used in lab or practice environment.Telnet uses TCP port 23 in its operation.
+- - -
+SMTP (Simple Mail Transfer Protocol) TCP/25 => is used for sending email throughout a network.This protocol uses TCP port 25 in its operation.
+- - -
+DNS (Domain Name System) TCP,UDP/53 => is used to translate domain names, like WEB URL to IP address. DNS uses both TCP and UDP in its operations.The port used in both cases is port 53.
+- - -
+DHCP (Dynamic Host Configuration Protocol) UDP/67,68 => used to dynamically assign IP address information (for example. IP address, subnet mask, DNS server IP address, Defaul Gateway IP address) to a network device.DHCP uses UDP ports 67 and 68 in its operations.
+- - -
+TFTP (Trivial File Transfer Protocol) UDP/69 => transfers files with a remote host (does not require authentication credentials).TFTP uses UDP port 69 in its operation.
+- - -
+HTTP (HyperText Transfer Protocol) TCP/80 => retrieves content from a web server.This protocol operates using TCP port 80.HTTP lacks security.
+- - -
+NTP (Network Time Protocol) UDP/123 => used to synchronize clocks of network devices with a time server(NTP server). This protocol relies on UDP port 123 in its operation.
+- - -
+SNMP (Simple Network Management Protocol) UDP/161,162 => is used to monitor and manage network devices.SNMP uses UDP ports 161 and 162 in its operation.
+- - - 
+LDAP (Lightweight Directory Access Protocol) TCP/389 => provides directory services (for example , a user directory that includes username, password, email and phone number information) to network clients, for example in Microsoft Active Directory.Uses TCP port 389 in its operation.
+- - -
+HTTPS (HyperText Transfer Protocol Secure) TCP/443 => is used to securely retrieve content from a web server.Uses TCP port 443.And often called that is made possible by SSL/TLS.
+- - - 
+SMB (Server Message Block) TCP/445 => is used to share files, printers and other network resources.Older versions used both TCP and UDP port 3020.Today, newer versions of SMB (after Windows 2000) use port 445 on top of a TCP stack in order to communicate over the Internet.
+- - -
+Syslog UDP/514 => is the standard used by network devices (and other computer systems) to report and send log messages on status information and health events to network administrators.In fact, to centrally store these messages, they are often sent to a Syslog server.This data is often called machine data.Storing and analyzing this information, which may include driver failures, device conflicts, read/write errors, timeouts, and bad  block errors can be very important.Syslog uses UDP port 514 in it operation.
+- - -
+SMTPS (Simple Mail Transfer Protocol Secure) TCP/587 => uses TCP port 587 in its operation and is the secure version of SMTP.SMTPS uses Transport Layer Security by wrapping SMTP data in TLS.This is like how HTTPS wraps HTTP data inside TLS.
+- - -
+LDAPS (Lightweight Directory Access Protocol over SSL) TCP/636 =>  is the secure version of LDAP.It operates over TCP port 636.
+- - -
+SQL Server TCP,UDP/1433 => Port 1433 was reserved for this Microsoft invention.
+- - -
+RDP (Remote Desktop Protocol) TCP,UDP/3389 => is a Microsoft protocol that allows a user to view and control the desktop of a remote computer.RDP is a presentation layer protocol.It uses TCP and UDP port 3389 in it operation.
+- - -
+SIP (Session Initiation Protocol) TCP,UDP/5060,5061 => is used to create and finish sessions for one or more media connections, including Voice over IP (VoIP) calls.SIP can use both TCP and UDP ports 5060 in its operation.
+____ ____ ____ ___
+
+		#IP (Internet Protocol) Types
+
+Internet Protocol (IP) is a network layer protocol, documented in RFC 791, that offers a connectionless internetwork service.IP provides features for addressing, packet fragmentation and reassembly, type-of-service specification, and security.
+
+- -
+Internet Control Message Protocol (ICMP) , in addition to TCP and UDP , is another transport layer protocol , documented in RFC 792 that reports errors and provides other information relevant to IP packet processing.It is used by utilities such as ping and traceroute.
+- -
+Transmission Control Protocol (TCP) , is a transport layer 'RELIABLE' protocol.'RELIABLE' means that if a segment is dropped , the sender can detect that drop and retransmit the dropped segment.
+- -
+User Datagram Protocol (UDP) can be considered an opposite approach to TCP.Unlike TCP,UDP offers unreliable transport.This means that if a segment is dropped, the sender is unaware of the drop, and no retransmission occurs.
+- -
+Generic Routing Encapsulation (GRE).For example, let’s say you have traffic that you want to protect over an IPsec tunnel, but this traffic is multicast traffic. IPsec does not support securing this type of traffic. That is where GRE can come into play. The multicast can be encapsulated inside GRE, and then this GRE traffic can be protected by IPsec.
+- -
+Internet Protocol Security (IPSec) is a complex suite of protocols that is used to create secured connections between network systems.IPSec features the use of Authentication Header(AH) and Encapsulating Security Payload(ESP).AH handles authentication functions, while ESP takes care of encryption.IPSec also gets help from Internet Key Exchange(IKE) protocol.IKE negotiates cryptographic keys and security parameters to facilitate the secure IPSec data transmissions over the Internet.
+- - - - - - - - - - - - -
+		#Traffic Types
+
+Unicast - one-to-one communication.the most network traffic , which travels from a single source device to a single destination device.(IP Range - Class A,B,C)
+
+Broadcast - one-to-all communication.travels from a single source to all destinations on a network(broadcast domain` 255.255.255.255).Another type of broadcast address is a directed broadcast address, which targets all devices in a remote network (for example` 172.168.255.255/16).(IP Range - 255.255.255.255)
+
+Multicast - one-to-many communication.offers an efficient mechanism for a single host to send traffic to multiple specific destinations.The router/switch receives data only once, and sends it to devices which want.The router must support PIM,IGMP for routing to the devices which are interested for getting data.(IP Range - Class D` 224.0.0.0 - 239.0.0.0)
+
+Anycast - one-to-nearest communication (from a sender to the nearest of multiple receivers).Multiple devices share the same anycast IP address, but packets are routed to the nearest(or best) destination based on routing metrics such as shortest path or lowest latency.
+
+Note - IPv6 doesn't support broadcast traffic, besides it uses a special all-nodes IPv6 multicast address.
+_______		_____________		____________
+----------------       --------------
