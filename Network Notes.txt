@@ -1,9 +1,10 @@
-												🛜NETWORK
-				
+						🛜NETWORK
+(Chapter 1)
+
 			1.Physical Layer
 			2.Data-Link Layer
 			3.Network Layer
-OSI MODEL   	4.Transport Layer
+OSI MODEL   		4.Transport Layer
 			5.Session Layer
 			6.Presentation Layer
 			7.Application Layer
@@ -17,6 +18,7 @@ Private Address Ranges 	-   		| 172.16.0.0 - 172.31.255.255(172.16/12)
 -----------------------     -----------------------     -----------------------
 
 Network Devices👨‍💻
+(Chapter 2)
 
 Device - Description - Key Points
 Router - Connects networks - A router uses the software-configured network address to make forwarding decisions.
@@ -45,7 +47,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXX♨️Read and learn in details about CLOUDs ??????? X
 
 _______________			_________________	    ________________
      -----------------------     -----------------------
-PORTS & PROTOCOLS
+PORTS & PROTOCOLS (Chapter 4)
 	
 		| 0 - 1023 (Well-known ports)
 Ports 	| 1024 - 49151 (Registered ports)
