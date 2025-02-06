@@ -123,3 +123,117 @@ Anycast - one-to-nearest communication (from a sender to the nearest of multiple
 Note - IPv6 doesn't support broadcast traffic, besides it uses a special all-nodes IPv6 multicast address.
 _______		_____________		____________
 ----------------       --------------
+	#Network Topology, Architecture and Types
+
+IEEE (Institute of Electrical and Electronics Engineers) - an internationally recognized standards body
+
+- - - - - - - -
+
+LAN (Local Area Network) - interconnects network components within a local area (for example, within a building).
+
+WLAN (Wireless Local Area Network) - LAN made up of wireless network devices.
+
+WAN (Wide Area Network) - interconnects network components that are geographically seperated(for example, corporate headquarters can have multiple WAN connections to remote office sites).
+
+SAN (Storage Area Network) - a network, which is high-speed, highly reliable, for the express purpose of transmitting stored data.
+
+CAN (Campus Area Network) - a network, that connects multiple buildings within a limited geographical area (such as a university, corporate campus, or military base).LAN < CAN < MAN 
+
+MAN (Metropolitan Area Network) - a network, that spans an entire city or large area, connecting multiple LANS and CANs over a larger geographical region.CAN > MAN > WAN
+
+PAN (Personal Area Network) - a network, whose scale is even smaller than LAN(for example, a connection between a PC and a digital camera via a universal serial bus'USB' cable could be considered a PAN.)
+
+- - - - - - - - -
+
+Client/Server Model
+
+A central server provides services/data to multiple clients(devices).For Example , Websites, email servers, cloud storage, etc...
+
+Pros:
+	Centralized management(easy to control)
+	Better security(admin controls access)
+	Handles many users efficienlty(scalable)
+Cons:
+	Needs a powerful server(expensive)
+	If the server fails, everything stops
+
+- - -
+
+Peer-to-Peer(P2P) Model
+
+All devices(peers) are equal and share resources directly without a central server.For example(Torrenting, LAN gaming, Bluetooth file sharing).
+
+Pros:
+	No central point of failure(more reliable)
+	Cheaper(no need for expensive servers)
+	Scalable(more peers = more resources)
+Cons:
+	Harder to secure(no central control)
+	Slower for large networks(no dedicated management)
+
+- - -
+
+Cloud Networking
+
+Cloud Networking is the use of cloud-based resources to manage, control, and connect networks instead of using traditional on-premises hardware.(Everything is virtualized)
+
+Pros:
+	Scalable(Expand or reduce network size easily)
+	Cost-Effective(No need for expensive on-site hardware)
+	Accessible Anywhere(Managed remotely via the internet)
+Cons:
+	Depends on Internet
+	Secuity Risks(Data is stored outside your control)
+	Latency Issues(Can be slower than local neworking)
+
+___ ___ ___ ___
+
+Point-to-Point(P2P) Topology
+
+Direct connection between two devices.(For Example, Ethernet cable between two computers)
+
+Pros: Fast & Secure(no interference)
+Cons: Not Scalable(only two devices)
+- - -
+Star Topology
+
+All devices connect to a central switch/hub.(For Example, Home Wi-Fi router with multiple devices)
+
+Pros: Easy to manage & troubleshoot.If one device fail, others work.
+Cons: Central hub failure(entire network down)
+
+- - -
+Hub-and-Spoke Topology
+
+Like star topology, but used in WANs.(For example, branch offices connected to HQ via VPN)
+
+Pros: Cost-effective(only one central link needed).Easier to manage than full mesh.
+Cons: Central hub failure disrupts all-spokes.
+
+- - -
+Full-Mesh Topology
+
+Every device is directly connected to every other device in the network.It creates a redundant and highly resilient network.Every node connects to all other nodes.(For Example, a data center with multiple servers interconnected for reliability).
+W = N * (N - 1)/2, where W = the number of WAN links and N = the number of sites.
+
+Pros:
+	High redundancy(if one link fails, data can take another route)
+	No single point of failure(ensures network reliabilty)
+	Fast data transfer(direct communication between devices)
+Cons:
+	High cost(requires more cables and hardware, making it expensive)
+	Complex setup(managing connections can be difficult as the network grows)
+- - -
+Partial-Mesh Topology
+
+Network setup where some devices are directly connected to each other, but not all devices are interconnected.It's a compromise between full-mush and other simpler topologies.
+
+Pros:
+	Less expensive than full-mush(Fewer cables and devices required)
+	Improved redundancy(Some level of backup connectivity between devices)
+	Scalable(Easier to expand than full-mesh)
+Cons:
+	Some points of failure(Not all devices have backup connections)
+	Not as reliable as full-mesh(if a critical goes down, it may disrupt communications)
+
+- - - -
