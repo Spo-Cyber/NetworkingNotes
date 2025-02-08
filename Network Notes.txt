@@ -183,7 +183,7 @@ Pros:
 	Accessible Anywhere(Managed remotely via the internet)
 Cons:
 	Depends on Internet
-	Secuity Risks(Data is stored outside your control)
+	Security Risks(Data is stored outside your control)
 	Latency Issues(Can be slower than local neworking)
 
 ___ ___ ___ ___
@@ -237,3 +237,63 @@ Cons:
 	Not as reliable as full-mesh(if a critical goes down, it may disrupt communications)
 
 - - - -
+----------Three-Tier Hierarchical Model-------
+
+The model helps seperate the logical functions of the network and ensures that hardware and software are targeted correctly.It divides the network into three main layers: Access Layer, Distribution Layer, and Core Layer.Each layer has specific roles, and each is designed to meet different needs, improving network performance and manageability.
+- - -
+1.Access Layer(Edge Layer)
+
+This is layer is closest to the end users (like laptops, desktops, and smartphones).It provides users with easy access to the network in a high-bandwidth manner.
+DEVICES: *End-user devices: laptops, desktops, tablets, smartphones.
+	    *Layer2 switches(often called access layer switches).
+	    *Wireless Access Points(APs).
+Purpose: It controls user access and defines the equipment required to connect end-user devices to the network.
+- - -
+2.Distribution Layer(Aggregation Layer)
+
+This layer connects the access layer to the core network.It is critical for linking devices in the access layer to the broader network and external resources(like cloud services, remote data centers).
+DEVICES: *High-speed routers.
+	    *Multilayer switches.
+	    *Firewalls.
+	    *Intrusion Prevention Systems(IPS).
+	    *Proxy Servers.
+Purpose: Acts as a mediator and ensures efficient communication between the access layer and core network, with high-speed data transmission and security.
+- - -
+3.Core Layer(Backbone Layer)
+
+The core layer is responsible for moving large volumes of data between key network locations(data centers, or between locations in an enterprise).It provides speed and high-performance data transfer.
+
+DEVICES: *High-speed routers.
+	    *High-speed multilayer switches.
+Purpose: This layer is focused on speed, reliability, and redundancy, ensuring that large amounts of data are transferred quickly across the network.
+-------------Spine and Leaf Model-------------
+
+A modern network topology designed for high-speed, low-latency, and scalable data center networking.
+
+Two-Tier Structure: 1)Leaf Switches - Directly connect to servers and storage systems. 
+				2)Spine Switches - Provide high-speed interconnections between leaf switches.
+
+NO direct connection between leaf switches - All traffic goes through the spine layer.
+Each leaf switch connects to every spine switch - Ensures equal latency and load balancing.
+
+			*Scalablity (easily expand by adding more leaf/spine switches)
+Advantages  -  *Low Latency (Equal hop count between any two edpoints)
+			*High Redundancy (Multiple paths prevent single points of failure)
+			*Better Load Balancing (Traffic spreads across all spine switches)
+-----
+
+Spine-Leaf vs. Traditional Three-Tier Model
+
+-----------------------------------------------------------------------------------|
+Feature 		  |	Spine-Leaf		  |	Three-Tier(Core, Distribution, Access)|
+-----------------|------------------------|----------------------------------------|
+Scalability	  |	High  			  |	Limited						   |
+Latency 		  |	Low(Two hops max) 	  |	Higher						   |
+Redundancy	  |	Full Mesh(resilient)  |	Less resilient					   |
+Ideal Use Case   |	Data Centers		  |	Enterprise Networks				   |
+-----------------------------------------------------------------------------------|
+-----
+#Traffic Flow
+
+North-South Traffic Flows: In the classic three-tier model, most traffic flows are north to south(and also south to north).This describes traffic moving from the core to the access layer and vice vers.
+East-West Traffic Flows: In the newer spine and leaf type architecture , most traffic flows tend to be east to west (and vice versa).In this architecture , virtual machines and/or containers communicate with each other over east-west flows.
