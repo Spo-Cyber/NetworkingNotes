@@ -123,7 +123,7 @@ Anycast - one-to-nearest communication (from a sender to the nearest of multiple
 Note - IPv6 doesn't support broadcast traffic, besides it uses a special all-nodes IPv6 multicast address.
 _______		_____________		____________
 ----------------       --------------
-	#Network Topology, Architecture and Types
+	#Network Topology, Architecture and Types (Chapter 6)
 
 IEEE (Institute of Electrical and Electronics Engineers) - an internationally recognized standards body
 
@@ -297,3 +297,80 @@ Ideal Use Case   |	Data Centers		  |	Enterprise Networks				   |
 
 North-South Traffic Flows: In the classic three-tier model, most traffic flows are north to south(and also south to north).This describes traffic moving from the core to the access layer and vice vers.
 East-West Traffic Flows: In the newer spine and leaf type architecture , most traffic flows tend to be east to west (and vice versa).In this architecture , virtual machines and/or containers communicate with each other over east-west flows.
+________________________________________________
+------------------- ------------------------------
+		#IPv4 Addressing (Chapter 7)
+
+Private IPv4 Address Classes:
+
+Class A:
+	First Octet: 1-126
+	Default subnet mask: 255.0.0.0(/8)
+	Private Range: 10.0.0.0 - 10.255.255.255(10.0.0.0/8)
+	Used for: Very large networks
+
+Class B:
+	First Octet: 128-191
+	Default subnet mask: 255.255.0.0(/16)
+	Private Range: 172.16.0.0 - 172.31.255.255(172.16.0.0/12)
+	Used for: Medium-sized networks
+Class C:
+	First Octet: 192-223
+	Default subnet mask: 255.255.255.0(/24)
+	Private Range: 192.168.0.0 - 192.168.255.255(192.168.0.0/24)
+	Used for: Small networks
+Class D:
+	First Octet: 224-239
+	Default subnet mask: -
+	Private Range: -
+Class E:
+	First Octet: 240-255
+	Default subnet mask: -
+	Private Rarge: -
+
+Scope: Devices using private IPs can communicate within the same local network and may access the internet through NAT(Network Address Translation).
+
+- - -
+APIPA (Automatic Private IP Addressing)
+
+	Range: 169.254.0.0 - 169.254.255.255(169.254.0.0/16)
+	Subnet Mask: 255.255.0.0(/16)
+	Class: B
+	Purpose: Used when a device is configured to get an IP address automatically (via DHCP), but the device cannot reach a DHCP server.In this case, the device self-assigns an IP address in the APIPA range.
+	Scope: This address range is local to the network and is not routable on the internet.Devices with an APIPA address can only communicate within the same local network.
+	Common Usage: It is commonly seen in  Windows and other operating systems when they fail to receive an IP address from a DHCP server.The system assigns itself a 169.254.x.x IP address as a fallback.
+	Limitations: Devices using APIPA cannot communicate with devices outside the local network or on the internet.
+- - -
+
+End users typically do not type in the IP address of the destination device with which they want to connect, instead, end users typically type in Fully Qualified Domain Names (FQDNs), such as facebook.com.When connecting deviced on the public Internet, a Domain Name System(DNS) server translates an FQDN into the corresponding IP address.
+__ _ _ _ _ __
+
+#Subnetting:
+
+Subnetting - divides a large network into smaller, manageable parts.
+VLSM(Variable-Length Subnet Masking) - allows to create subnets(subnetworks) of different sizes based on you needs(rather than using the same subnet size for everything).
+By subnetting the network, we can improve performance(less congestion) and security(smaller groups of devices).
+
+-------------
+*Cheat Sheet*
+
+Subnet Octet Value	Contiguous Left-Justified 1s
+0 				0
+128 				1
+192 				2
+224 				3
+240 				4
+248				5
+252 				6
+254 				7
+255 				8
+-------------
+
+Formulas.
+Number of borrowed bits = Bits in custom subnet mask - Bits in classful subnet mask
+Count of subnets = 2 raised to the power of Number of borrowed bits
+Number of hosts = 2 raised to the power of assignable host bits (right side of the network addresses between octets) - 2(network and broadcast IDs)
+
+For Example` if we have 192.168.1.0(/24) and want to subnet and set submask to (/28) , then number of borrowed bits = 28 - 24 = 4.
+So the count of subnets in this network is 2 raised to the power of 4 = 16 => devided into 16 subnets whole network.
+
