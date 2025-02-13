@@ -344,8 +344,7 @@ APIPA (Automatic Private IP Addressing)
 
 End users typically do not type in the IP address of the destination device with which they want to connect, instead, end users typically type in Fully Qualified Domain Names (FQDNs), such as facebook.com.When connecting deviced on the public Internet, a Domain Name System(DNS) server translates an FQDN into the corresponding IP address.
 __ _ _ _ _ __
-
-#Subnetting:
+			#Subnetting
 
 Subnetting - divides a large network into smaller, manageable parts.
 VLSM(Variable-Length Subnet Masking) - allows to create subnets(subnetworks) of different sizes based on you needs(rather than using the same subnet size for everything).
@@ -365,6 +364,7 @@ Subnet Octet Value	Contiguous Left-Justified 1s
 254 				7
 255 				8
 -------------
+!Basic Subnetting
 
 Formulas.
 Number of borrowed bits = Bits in custom subnet mask - Bits in classful subnet mask
@@ -374,3 +374,27 @@ Number of hosts = 2 raised to the power of assignable host bits (right side of t
 For Example` if we have 192.168.1.0(/24) and want to subnet and set submask to (/28) , then number of borrowed bits = 28 - 24 = 4.
 So the count of subnets in this network is 2 raised to the power of 4 = 16 => devided into 16 subnets whole network.
 
+- - -
+!Find Subnet addresses , and IP ranges of hosts in each Subnet
+
+1. Determine the interesting octet by determining the last octet in the subnet mask to contain a 1.
+
+2.Determine the block size by subtracting the decimal value in the subnet's interesting octet from 256.
+
+3.Determine the first subnet by setting all the borrowed bits(which are bits in the subnet mask beyond the bits in the classful subnet mask) to 0.
+
+4.Determine additional subnets by taking the first subnet and counting by the block size increment in the interesting octet.
+
+Example.
+Say that a 27-bit subnet mask is applied to the network address 192.168.10.0/24. To calculate the created subnets, you can perform the following steps:
+
+1.The subnet mask /27(in binary) is 11111111.11111111.11111111.11100000. The interesting octet is the fourth octet because the fourth octet contains the last 1 in the subnet mask.
+2.The decimal value of the fourth octet in the subnet mask is 224 (11100000 in decimal).Therefore, the block size is 32(256-224=32).
+3.The first subnet is 192.168.10.0/27 - the value of the original 192.168.10.0 network with the borrowed bits (the first 3bits in the fourth octet) set to 0.
+4.Counting by 32(the block size) in the interesting octet (the fourth octet) allows you to calculate the remaining subnets: 192.168.10.0 , 192.168.10.32, 192.168.10.64, ... , 192.168.10.224
+
+So the broadcast addresses will be: 192.168.10.31, 192.168.10.63, 192.168.10.95, ..., 192.168.10.255
+
+And the ranges will be 192.168.10.1-192.168.10.30,192.168.10.33-192.168.10.62,...,192.168.10.225-192.168.10.254
+
+---- ----- ---- ---- ----
