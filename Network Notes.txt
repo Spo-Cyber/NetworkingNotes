@@ -377,7 +377,7 @@ So the count of subnets in this network is 2 raised to the power of 4 = 16 => de
 - - -
 !Find Subnet addresses , and IP ranges of hosts in each Subnet
 
-1. Determine the interesting octet by determining the last octet in the subnet mask to contain a 1.
+1.Determine the interesting octet by determining the last octet in the subnet mask to contain a 1.
 
 2.Determine the block size by subtracting the decimal value in the subnet's interesting octet from 256.
 
@@ -398,3 +398,18 @@ So the broadcast addresses will be: 192.168.10.31, 192.168.10.63, 192.168.10.95,
 And the ranges will be 192.168.10.1-192.168.10.30,192.168.10.33-192.168.10.62,...,192.168.10.225-192.168.10.254
 
 ---- ----- ---- ---- ----
+
+#CIDR(Classless Inter-Domain Routing)
+
+CIDR is a method used to allocate IP addresses and route internet traffic.It was introduced to replace the old classful IP addressing system and provide a more flexible way of managing IP address space.
+
+How to Calculate a CIDR Block:
+
+1.Convert the IP address to binary.
+2.Count the number of bits in the network portion(this is the prefix length).
+3.Use the prefix to summarize the address range.
+
+#Example:
+For the network 192.168.4.0/22:
+	The first 22 bits are network bits.
+	The remaining 10bits can be used for hosts.
