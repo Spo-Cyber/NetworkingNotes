@@ -15,7 +15,8 @@ Protocol Data Unit(PDU -> bit groups in each OSI layer) --> Layer1(Bit), Layer2(
 Private Address Ranges 	-   		| 172.16.0.0 - 172.31.255.255(172.16/12)
 			  				| 192.168.0.0 - 192.168.255.255(192.168/16)
 			  
------------------------     -----------------------     -----------------------
+______________ ______________ ______________ ______________ ______________
+--------------------------------------------------------------------------
 
 Network Devices👨‍💻
 (Chapter 2)
@@ -44,9 +45,8 @@ Access Point (AP) - Enables wireless devices to connect to wireless and wired ne
 Controller - Used with branch/remote office deployments for wireless authentication - When an AP boots, it authenticates with a controller before it can start working as an AP.
 
 XXXXXXXXXXXXXXXXXXXXXXXXXX♨️Read and learn in details about CLOUDs ??????? XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx
-
-_______________			_________________	    ________________
-     -----------------------     -----------------------
+______________ ______________ ______________ ______________ ______________
+--------------------------------------------------------------------------
 PORTS & PROTOCOLS (Chapter 4)
 	
 		| 0 - 1023 (Well-known ports)
@@ -93,8 +93,8 @@ SQL Server TCP,UDP/1433 => Port 1433 was reserved for this Microsoft invention.
 RDP (Remote Desktop Protocol) TCP,UDP/3389 => is a Microsoft protocol that allows a user to view and control the desktop of a remote computer.RDP is a presentation layer protocol.It uses TCP and UDP port 3389 in it operation.
 - - -
 SIP (Session Initiation Protocol) TCP,UDP/5060,5061 => is used to create and finish sessions for one or more media connections, including Voice over IP (VoIP) calls.SIP can use both TCP and UDP ports 5060 in its operation.
-____ ____ ____ ___
-
+______________ ______________ ______________ ______________ ______________
+--------------------------------------------------------------------------
 		#IP (Internet Protocol) Types
 
 Internet Protocol (IP) is a network layer protocol, documented in RFC 791, that offers a connectionless internetwork service.IP provides features for addressing, packet fragmentation and reassembly, type-of-service specification, and security.
@@ -121,8 +121,8 @@ Multicast - one-to-many communication.offers an efficient mechanism for a single
 Anycast - one-to-nearest communication (from a sender to the nearest of multiple receivers).Multiple devices share the same anycast IP address, but packets are routed to the nearest(or best) destination based on routing metrics such as shortest path or lowest latency.
 
 Note - IPv6 doesn't support broadcast traffic, besides it uses a special all-nodes IPv6 multicast address.
-_______		_____________		____________
-----------------       --------------
+______________ ______________ ______________ ______________ ______________
+--------------------------------------------------------------------------
 	#Network Topology, Architecture and Types (Chapter 6)
 
 IEEE (Institute of Electrical and Electronics Engineers) - an internationally recognized standards body
@@ -297,8 +297,8 @@ Ideal Use Case   |	Data Centers		  |	Enterprise Networks				   |
 
 North-South Traffic Flows: In the classic three-tier model, most traffic flows are north to south(and also south to north).This describes traffic moving from the core to the access layer and vice vers.
 East-West Traffic Flows: In the newer spine and leaf type architecture , most traffic flows tend to be east to west (and vice versa).In this architecture , virtual machines and/or containers communicate with each other over east-west flows.
-________________________________________________
-------------------- ------------------------------
+______________ ______________ ______________ ______________ ______________
+--------------------------------------------------------------------------
 		#IPv4 Addressing (Chapter 7)
 
 Private IPv4 Address Classes:
