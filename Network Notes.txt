@@ -43,8 +43,6 @@ Storage Area Network (SAN) - A high-speed network that connects storage devices 
 Access Point (AP) - Enables wireless devices to connect to wireless and wired networks - Should provide the latest in security standards to help reduce security breaches.
 
 Controller - Used with branch/remote office deployments for wireless authentication - When an AP boots, it authenticates with a controller before it can start working as an AP.
-
-XXXXXXXXXXXXXXXXXXXXXXXXXX♨️Read and learn in details about CLOUDs ??????? XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx
 ______________ ______________ ______________ ______________ ______________
 --------------------------------------------------------------------------
 PORTS & PROTOCOLS (Chapter 4)
@@ -413,3 +411,19 @@ How to Calculate a CIDR Block:
 For the network 192.168.4.0/22:
 	The first 22 bits are network bits.
 	The remaining 10bits can be used for hosts.
+
+______________ ______________ ______________ ______________ ______________
+--------------------------------------------------------------------------
+
+
+
+
+
+
+______________ ______________ ______________ ______________ ______________
+--------------------------------------------------------------------------
+
+RETURN TO CHAPTER LATER
+Cloud Concepts(Chapter 3)
+Transmission Media and Transceivers(Chapter 5)
+Evolving Use Cases(Chapter 8)
