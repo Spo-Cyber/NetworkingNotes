@@ -1,0 +1,53 @@
+		#Routing Technologies (Chapter 9)
+
+ARP(Address Resolution Protocol) - is a broadcast protocol and, therefore, does not travel out of the local subnet of the sender.
+
+
+IP routing table: When a router needs to route an IP packet, it consulted its IP routing table to find the best match.The best match is the route that has the longest prefix(greatest number of bits in the subnet mask are set to 1).
+
+Static Routing - A method of manually configuring a network route by specifying fixed paths for data packets to travel within a network.
+
+Dynamic Routing - The process of distributing network prefix information through a network so that traffic can be forwarded to network destinations.
+- - - - -
+#Routing Protocol Characteristics
+
+RIP(Routing Information Protocol) - Decides for router to send data packet by the shortest path, without counting bandwidths of other routes.
+
+OSPF(Open Shortest Path First) - Can consider available bandwidth when making their routing decisions.
+
+Convergence - The process of failing over from one route to a backup route.
+- - - - -
+#Believability of a Route
+
+Administrative Distance(AD) - A routing protocol's index of believability.Routing protocols with a smaller AD are considered more believable than routing with a higher AD.
+
+Routing Information Source		AD Value
+Directly connected network		0
+Statically configured network	1
+EIGRP							90
+OSPF							110
+RIP								120
+External EIGRP					170
+Unknown or unbelievable			255("unreachable")
+
+Metric - a numerical value assigned to a route by a routing protocol to determine the best path within that protocol.(such as for RIP it the metric is Hop count, for OSPF it is the available bandwidth...)
+
+Route Selection (the process of determining the optimal path for data packets to travel from a source to a destination within a network) - works by using the longest matching prefix length, the lowest administrative distance value, and the most preferred metric.
+
+Routing protocols are classified into two main categories based on where they operate within a network:
+
+1.IGP(Interior Gateway Protocols) - Used for routing inside a single orgainzation or autonomous system(AS).
+2.EGP(Exterior Gateway Protocols) - Used for routing between different organizations or autonomous systems(AS-to-AS communication).
+
+- - - - - -
+Distance Vector Routing Protocol - is a method to find the best path based on distance(metric) and direction(vector).Each router maintains a routing table with destination, next hop, and cost.Periodically broadcasts entire routing table to neighbors.
+Protocols:
+	RIP(hop count, max 15 hops,updates every 30 seconds)
+	IGRP(bandwidth, delay, reliability, load as metrics)
+	EIGRP(hybrid protocol, uses DUAL algorithm)
+Loop Prevention Methods:
+	1.Split HOrizon - Prevents advertising a route back to the source it was learned from.
+	2.Route Poisoning - Marks failed routes as unreachable(e.g. 16 hops in RIP).
+	3.Hold-down Timers - Delays updates to prevent incorrect route changes.
+- - - - - -
+
