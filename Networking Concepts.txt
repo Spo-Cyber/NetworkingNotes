@@ -415,15 +415,13 @@ For the network 192.168.4.0/22:
 ______________ ______________ ______________ ______________ ______________
 --------------------------------------------------------------------------
 
-
-
-
-
+			⚠️RETURN TO CHAPTERS LATER
+			
+Cloud Concepts(Chapter 3)
+Transmission Media and Transceivers(Chapter 5)
+Evolving Use Cases(Chapter 8)
 
 ______________ ______________ ______________ ______________ ______________
 --------------------------------------------------------------------------
 
-RETURN TO CHAPTER LATER
-Cloud Concepts(Chapter 3)
-Transmission Media and Transceivers(Chapter 5)
-Evolving Use Cases(Chapter 8)
+
