@@ -1,6 +1,6 @@
 		#Routing Technologies (Chapter 9)
 
-ARP(Address Resolution Protocol) - is a broadcast protocol and, therefore, does not travel out of the local subnet of the sender.
+ARP(Address Resolution Protocol) - is a broadcast protocol and, therefore, does not travel out of the sender's local subnet.
 
 
 IP routing table: When a router needs to route an IP packet, it consulted its IP routing table to find the best match.The best match is the route that has the longest prefix(greatest number of bits in the subnet mask are set to 1).
@@ -36,18 +36,36 @@ Route Selection (the process of determining the optimal path for data packets to
 
 Routing protocols are classified into two main categories based on where they operate within a network:
 
-1.IGP(Interior Gateway Protocols) - Used for routing inside a single orgainzation or autonomous system(AS).
+1.IGP(Interior Gateway Protocols) - Used for routing inside a single organization or autonomous system(AS).
 2.EGP(Exterior Gateway Protocols) - Used for routing between different organizations or autonomous systems(AS-to-AS communication).
 
 - - - - - -
-Distance Vector Routing Protocol - is a method to find the best path based on distance(metric) and direction(vector).Each router maintains a routing table with destination, next hop, and cost.Periodically broadcasts entire routing table to neighbors.
+#Distance Vector Routing Protocol - is a method to find the best path based on distance(metric) and direction(vector).Each router maintains a routing table with destination, next hop, and cost.Periodically broadcasts entire routing table to neighbors.
+
 Protocols:
 	RIP(hop count, max 15 hops,updates every 30 seconds)
 	IGRP(bandwidth, delay, reliability, load as metrics)
-	EIGRP(hybrid protocol, uses DUAL algorithm)
+	EIGRP(hybrid protocol, uses DUAL(Diffusing Update Algorithm) algorithm)
 Loop Prevention Methods:
-	1.Split HOrizon - Prevents advertising a route back to the source it was learned from.
+	1.Split Horizon - Prevents advertising a route back to the source it was learned from.
 	2.Route Poisoning - Marks failed routes as unreachable(e.g. 16 hops in RIP).
 	3.Hold-down Timers - Delays updates to prevent incorrect route changes.
 - - - - - -
+#Link-State Routing Protocols
+Each router builds a topological map of the network instead of relying on neighbors for routes.Routers share LSA(Link-State Advertisements) to exchange network information and construct a complete map.Uses Dijkstra's Shortest Path First(SPF) algorithm to find the best route.Sends updates ONLY WHEN THE NETWORK CHANGES, not periodically.More accurate and scalable than distance-vector protocols, making it ideal for large networks.
+- - - - - -
+#Routing Protocol Examples:
 
+OSPF(Open Shortest Path First) - is a link-state routing protocol that uses the metric cost, which is based on the link speed between two routers.OSPF is a popular IGP because of its scalability, fast convergence.METRIC - based on bandwidth.
+
+IS-IS(Intermediate System-to-Intermediate System) - is a link-state routing protocol and is similar to OSPF in operation.It uses configurable, yet dimensionless(not tied to a specific network layer or addressing scheme"ipv4/ipv6...""), metric associated with an interface and runs Dijkstra's shortest path first algorithm.
+
+EIGRP(Enhanced Interior Gateway Routing Protocol) - is a Cisco-proprietary protocol that is popular in Cisco-only networks but less popular in mixed-vendor environments.Like OSPF, it is an IGP that offers fast convergence and scalability.EIGRP is more challenging to classify as a distance-vector or a link-state routing protocol.METRIC - bandwidth and delay by default.
+
+BGP(Border Gateway Protocol) - is the only EGP in widespread use today.In fact, BGP is considered to be the routing protocol that runs the Internet, which is an interconnection of multiple autonomous systems.
+- - - - - - -
+#Address Translation
+
+NAT(Network Address Translation) - allows private IP addresses to be translated into Internet-routable IP addresses(that is public IP addresses).
+DNAT(Dynamic NAT) - local devices get different public IPs from a pool of available public addresses.
+SNAT(Static NAT) - a specific local device is always assigned the same public IP.
