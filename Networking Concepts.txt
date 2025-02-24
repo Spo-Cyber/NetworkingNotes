@@ -4,7 +4,7 @@
 			1.Physical Layer
 			2.Data-Link Layer
 			3.Network Layer
-OSI MODEL   		4.Transport Layer
+OSI MODEL   4.Transport Layer
 			5.Session Layer
 			6.Presentation Layer
 			7.Application Layer
@@ -12,7 +12,7 @@ OSI MODEL   		4.Transport Layer
 Protocol Data Unit(PDU -> bit groups in each OSI layer) --> Layer1(Bit), Layer2(Frame), Layer3(Packet), Layer4(Segment)
 
 			  				| 10.0.0.0 - 10.255.255.255(10/8)
-Private Address Ranges 	-   		| 172.16.0.0 - 172.31.255.255(172.16/12)
+Private Address Ranges 	-   | 172.16.0.0 - 172.31.255.255(172.16/12)
 			  				| 192.168.0.0 - 192.168.255.255(192.168/16)
 			  
 ______________ ______________ ______________ ______________ ______________
@@ -80,7 +80,7 @@ HTTPS (HyperText Transfer Protocol Secure) TCP/443 => is used to securely retrie
 - - - 
 SMB (Server Message Block) TCP/445 => is used to share files, printers and other network resources.Older versions used both TCP and UDP port 3020.Today, newer versions of SMB (after Windows 2000) use port 445 on top of a TCP stack in order to communicate over the Internet.
 - - -
-Syslog UDP/514 => is the standard used by network devices (and other computer systems) to report and send log messages on status information and health events to network administrators.In fact, to centrally store these messages, they are often sent to a Syslog server.This data is often called machine data.Storing and analyzing this information, which may include driver failures, device conflicts, read/write errors, timeouts, and bad  block errors can be very important.Syslog uses UDP port 514 in it operation.
+Syslog UDP/514 => is the standard used by network devices (and other computer systems) to report and send log messages on status information and health events to network administrators.In fact, to centrally store these messages, they are often sent to a Syslog server.This data is often called machine data.Storing and analyzing this information, which may include driver failures, device conflicts, read/write errors, timeouts, and bad block errors can be very important.Syslog uses UDP port 514 in it's operation.
 - - -
 SMTPS (Simple Mail Transfer Protocol Secure) TCP/587 => uses TCP port 587 in its operation and is the secure version of SMTP.SMTPS uses Transport Layer Security by wrapping SMTP data in TLS.This is like how HTTPS wraps HTTP data inside TLS.
 - - -
@@ -88,15 +88,14 @@ LDAPS (Lightweight Directory Access Protocol over SSL) TCP/636 =>  is the secure
 - - -
 SQL Server TCP,UDP/1433 => Port 1433 was reserved for this Microsoft invention.
 - - -
-RDP (Remote Desktop Protocol) TCP,UDP/3389 => is a Microsoft protocol that allows a user to view and control the desktop of a remote computer.RDP is a presentation layer protocol.It uses TCP and UDP port 3389 in it operation.
+RDP (Remote Desktop Protocol) TCP,UDP/3389 => is a Microsoft protocol that allows a user to view and control the desktop of a remote computer.RDP is a presentation layer protocol.It uses TCP and UDP port 3389 in it's operation.
 - - -
-SIP (Session Initiation Protocol) TCP,UDP/5060,5061 => is used to create and finish sessions for one or more media connections, including Voice over IP (VoIP) calls.SIP can use both TCP and UDP ports 5060 in its operation.
+SIP (Session Initiation Protocol) TCP,UDP/5060,5061 => is used to create and finish sessions for one or more media connections, including Voice over IP (VoIP) calls.SIP can use both TCP and UDP ports 5060 and 5061 in it's operation.
 ______________ ______________ ______________ ______________ ______________
 --------------------------------------------------------------------------
 		#IP (Internet Protocol) Types
 
 Internet Protocol (IP) is a network layer protocol, documented in RFC 791, that offers a connectionless internetwork service.IP provides features for addressing, packet fragmentation and reassembly, type-of-service specification, and security.
-
 - -
 Internet Control Message Protocol (ICMP) , in addition to TCP and UDP , is another transport layer protocol , documented in RFC 792 that reports errors and provides other information relevant to IP packet processing.It is used by utilities such as ping and traceroute.
 - -
@@ -135,12 +134,13 @@ WAN (Wide Area Network) - interconnects network components that are geographical
 
 SAN (Storage Area Network) - a network, which is high-speed, highly reliable, for the express purpose of transmitting stored data.
 
-CAN (Campus Area Network) - a network, that connects multiple buildings within a limited geographical area (such as a university, corporate campus, or military base).LAN < CAN < MAN 
+CAN (Campus Area Network) - a network, that connects multiple buildings within a limited geographical area (such as a university, corporate campus, or military base).
 
-MAN (Metropolitan Area Network) - a network, that spans an entire city or large area, connecting multiple LANS and CANs over a larger geographical region.CAN > MAN > WAN
+MAN (Metropolitan Area Network) - a network, that spans an entire city or large area, connecting multiple LANS and CANs over a larger geographical region.
 
 PAN (Personal Area Network) - a network, whose scale is even smaller than LAN(for example, a connection between a PC and a digital camera via a universal serial bus'USB' cable could be considered a PAN.)
 
+WAN < MAN < CAN < LAN < PAN
 - - - - - - - - -
 
 Client/Server Model
@@ -227,7 +227,7 @@ Partial-Mesh Topology
 Network setup where some devices are directly connected to each other, but not all devices are interconnected.It's a compromise between full-mush and other simpler topologies.
 
 Pros:
-	Less expensive than full-mush(Fewer cables and devices required)
+	Less expensive than full-mesh(Fewer cables and devices required)
 	Improved redundancy(Some level of backup connectivity between devices)
 	Scalable(Easier to expand than full-mesh)
 Cons:
@@ -241,20 +241,20 @@ The model helps seperate the logical functions of the network and ensures that h
 - - -
 1.Access Layer(Edge Layer)
 
-This is layer is closest to the end users (like laptops, desktops, and smartphones).It provides users with easy access to the network in a high-bandwidth manner.
+This layer is the closest to the end users (like laptops, desktops, and smartphones).It provides users with easy access to the network in a high-bandwidth manner.
 DEVICES: *End-user devices: laptops, desktops, tablets, smartphones.
-	    *Layer2 switches(often called access layer switches).
-	    *Wireless Access Points(APs).
+	     *Layer2 switches(often called access layer switches).
+	     *Wireless Access Points(APs).
 Purpose: It controls user access and defines the equipment required to connect end-user devices to the network.
 - - -
 2.Distribution Layer(Aggregation Layer)
 
 This layer connects the access layer to the core network.It is critical for linking devices in the access layer to the broader network and external resources(like cloud services, remote data centers).
 DEVICES: *High-speed routers.
-	    *Multilayer switches.
-	    *Firewalls.
-	    *Intrusion Prevention Systems(IPS).
-	    *Proxy Servers.
+	     *Multilayer switches.
+	     *Firewalls.
+	     *Intrusion Prevention Systems(IPS).
+	     *Proxy Servers.
 Purpose: Acts as a mediator and ensures efficient communication between the access layer and core network, with high-speed data transmission and security.
 - - -
 3.Core Layer(Backbone Layer)
@@ -262,38 +262,38 @@ Purpose: Acts as a mediator and ensures efficient communication between the acce
 The core layer is responsible for moving large volumes of data between key network locations(data centers, or between locations in an enterprise).It provides speed and high-performance data transfer.
 
 DEVICES: *High-speed routers.
-	    *High-speed multilayer switches.
+	     *High-speed multilayer switches.
 Purpose: This layer is focused on speed, reliability, and redundancy, ensuring that large amounts of data are transferred quickly across the network.
 -------------Spine and Leaf Model-------------
 
 A modern network topology designed for high-speed, low-latency, and scalable data center networking.
 
-Two-Tier Structure: 1)Leaf Switches - Directly connect to servers and storage systems. 
-				2)Spine Switches - Provide high-speed interconnections between leaf switches.
+Two-Tier Structure: 1)Leaf Switches - Directly connect to servers and storage systems.
+					2)Spine Switches - Provide high-speed interconnections between leaf switches.
 
 NO direct connection between leaf switches - All traffic goes through the spine layer.
 Each leaf switch connects to every spine switch - Ensures equal latency and load balancing.
 
-			*Scalablity (easily expand by adding more leaf/spine switches)
+			   *Scalablity (easily expand by adding more leaf/spine switches)
 Advantages  -  *Low Latency (Equal hop count between any two edpoints)
-			*High Redundancy (Multiple paths prevent single points of failure)
-			*Better Load Balancing (Traffic spreads across all spine switches)
+			   *High Redundancy (Multiple paths prevent single points of failure)
+			   *Better Load Balancing (Traffic spreads across all spine switches)
 -----
 
 Spine-Leaf vs. Traditional Three-Tier Model
 
------------------------------------------------------------------------------------|
-Feature 		  |	Spine-Leaf		  |	Three-Tier(Core, Distribution, Access)|
------------------|------------------------|----------------------------------------|
-Scalability	  |	High  			  |	Limited						   |
-Latency 		  |	Low(Two hops max) 	  |	Higher						   |
-Redundancy	  |	Full Mesh(resilient)  |	Less resilient					   |
-Ideal Use Case   |	Data Centers		  |	Enterprise Networks				   |
------------------------------------------------------------------------------------|
------
+|----------------------------------------------------------------------------------|
+|Feature 		  |  Spine-Leaf		      |	Three-Tier(Core, Distribution, Access) |
+|-----------------|-----------------------|----------------------------------------|
+|Scalability	  |	High  			      |	Limited						           |
+|Latency 		  | Low(Two hops max)     |	Higher						           |
+|Redundancy	      | Full Mesh(resilient)  |	Less resilient					       |
+|Ideal Use Case   |	Data Centers		  |	Enterprise Networks				       |
+|----------------------------------------------------------------------------------|
+
 #Traffic Flow
 
-North-South Traffic Flows: In the classic three-tier model, most traffic flows are north to south(and also south to north).This describes traffic moving from the core to the access layer and vice vers.
+North-South Traffic Flows: In the classic three-tier model, most traffic flows are north to south(and also south to north).This describes traffic moving from the core to the access layer and vice versa.
 East-West Traffic Flows: In the newer spine and leaf type architecture , most traffic flows tend to be east to west (and vice versa).In this architecture , virtual machines and/or containers communicate with each other over east-west flows.
 ______________ ______________ ______________ ______________ ______________
 --------------------------------------------------------------------------
@@ -340,7 +340,7 @@ APIPA (Automatic Private IP Addressing)
 	Limitations: Devices using APIPA cannot communicate with devices outside the local network or on the internet.
 - - -
 
-End users typically do not type in the IP address of the destination device with which they want to connect, instead, end users typically type in Fully Qualified Domain Names (FQDNs), such as facebook.com.When connecting deviced on the public Internet, a Domain Name System(DNS) server translates an FQDN into the corresponding IP address.
+End users typically do not type in the IP address of the destination device with which they want to connect, instead, end users typically type in Fully Qualified Domain Names (FQDNs), such as facebook.com.When connecting device on the public Internet, a Domain Name System(DNS) server translates an FQDN into the corresponding IP address.
 __ _ _ _ _ __
 			#Subnetting
 
@@ -352,12 +352,12 @@ By subnetting the network, we can improve performance(less congestion) and secur
 *Cheat Sheet*
 
 Subnet Octet Value	Contiguous Left-Justified 1s
-0 				0
+0 				    0
 128 				1
 192 				2
 224 				3
 240 				4
-248				5
+248				    5
 252 				6
 254 				7
 255 				8
