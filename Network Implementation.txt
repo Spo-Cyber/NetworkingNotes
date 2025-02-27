@@ -69,3 +69,16 @@ BGP(Border Gateway Protocol) - is the only EGP in widespread use today.In fact, 
 NAT(Network Address Translation) - allows private IP addresses to be translated into Internet-routable IP addresses(that is public IP addresses).
 DNAT(Dynamic NAT) - local devices get different public IPs from a pool of available public addresses.
 SNAT(Static NAT) - a specific local device is always assigned the same public IP.
+PAT(Port Address Translation) - a variant of NAT , where multiple inside local addresses share a single inside global IP address by different port numbers.
+- - - - - - -
+FHRP(First Hop Redundancy Protocols) - ensures network gateway redundancy, allowing multiple routers to act as a single default gateway.If the active router fails, another takes over seamlessly.
+
+HSRP(Hot Standby Router Protocol) - (Cisco Proprietary), uses an active and standby routers.Active router handles traffic, standby takes over if it fails.Uses virtual IP and MAC for seamless failover.
+VRRP(Virtual Router Redundancy Protocol) - (Open Standard), similar to HSRP but vendor-neutral.Uses a master router and multiple backups.Supports up to 255 virtual routers per network.
+CARP(Common Address Redundancy Protocol) - (Open Source),similarly uses master and backup routers.More flexible than VRRP, allowing better customization.
+GLBP(Gateway Load Balancing Protocol) - (Cisco Proprietary), unlike HSRP/VRRP, it allows load balancing across multiple routers.
+
+- - another method for backup is LACP(Link Aggregation Control Protocol) - enables to assign multiple physical links to a logical interface, which appears as a single link to a route processor.
+______________ ______________ ______________ ______________ ______________
+--------------------------------------------------------------------------
+			#Ethernet Switching Technologies (Chapter 10)
