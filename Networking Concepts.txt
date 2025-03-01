@@ -14,6 +14,16 @@ Protocol Data Unit(PDU -> bit groups in each OSI layer) --> Layer1(Bit), Layer2(
 			  				| 10.0.0.0 - 10.255.255.255(10/8)
 Private Address Ranges 	-   | 172.16.0.0 - 172.31.255.255(172.16/12)
 			  				| 192.168.0.0 - 192.168.255.255(192.168/16)
+
+- - - - - - -
+#Multiplexing Strategy
+
+TDM(Time-Division Multiplexing) - supports different communication sessions on the same physical medium by causing the sessions to take turns.
+StatTDM(Statical Time-Division Multiplexing) - instead of giving each user a fixed turn (like in regular TDM), it only gives time slots when data need to be sent.
+FDM(Frequency-Division Multiplexing) - divides a medium's frequency range into channels, and different communication sessions send their data over different channels.
+OFDM(Orthogonal Frequency-Division Multiplexing) - like FDM divides frequency range into channels, BUT frequencies that are mathematically arranged(orthogonal) so they don't interfere with each other, even when they overlap.
+OFDMA(Orthogonal Frequency-Division Multiple Access) - is multiuser version of OFDM, designed for multiple users to share the same channel more efficiently.
+- - - - - - -
 			  
 ______________ ______________ ______________ ______________ ______________
 --------------------------------------------------------------------------
@@ -423,5 +433,3 @@ Evolving Use Cases(Chapter 8)
 
 ______________ ______________ ______________ ______________ ______________
 --------------------------------------------------------------------------
-
-
