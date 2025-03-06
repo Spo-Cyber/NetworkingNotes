@@ -10,14 +10,14 @@ OSI MODEL         4.Transport Layer
 			6.Presentation Layer
 			7.Application Layer
 		
-Protocol Data Unit(PDU -> bit groups in each OSI layer) --> Layer1(Bit), Layer2(Frame), Layer3(Packet), Layer4(Segment)
+PDU(Protocol Data Unit "bit groups in each OSI layer") -> Layer1(Bit), Layer2(Frame), Layer3(Packet), Layer4(Segment)
 - - - - - - -
       #Layer 1: Physical Layer
 
 #Multiplexing Strategy
 
 TDM(Time-Division Multiplexing) - supports different communication sessions on the same physical medium by causing the sessions to take turns.
-StatTDM(Statical Time-Division Multiplexing) - instead of giving each user a fixed turn (like in regular TDM), it only gives time slots when data need to be sent.
+StatTDM(Statistical Time-Division Multiplexing) - instead of giving each user a fixed turn (like in regular TDM), it only gives time slots when data need to be sent.
 FDM(Frequency-Division Multiplexing) - divides a medium's frequency range into channels, and different communication sessions send their data over different channels.
 OFDM(Orthogonal Frequency-Division Multiplexing) - like FDM divides frequency range into channels, BUT frequencies that are mathematically arranged(orthogonal) so they don't interfere with each other, even when they overlap.
 OFDMA(Orthogonal Frequency-Division Multiple Access) - is multiuser version of OFDM, designed for multiple users to share the same channel more efficiently.
@@ -32,7 +32,7 @@ Handling flow control
 
 Data-Link Layer consists of MAC and LLC
 - - 
-#MAC(Media Access Control:
+#MAC(Media Access Control):
 Physical Addressing - The IEEE Registration Authority assigns a manufacturer one or more unique vendor codes.No two MAC addresses in the world should have the same value.
 Logical Topology - Layer2 devices view a network as logical(not physical) topology.
 Method of Transmitting on the media - With several devices connected to a network, there needs to be some strategy for deciding when a device sends data on the media.Otherwise, multiple devices might send at the same time and interfere with one anothers transmissions.
@@ -40,7 +40,10 @@ Method of Transmitting on the media - With several devices connected to a networ
 #LLC(Logical Link Control):
 Connection services - When a device on a network receives a message from another device on the network, that recipient device can give feedback to the sender in the form of an acknowledgment message by two main functions` Flow Control(Limits the amount of data a sender can send at one time, to not overwhelm the receiver with too much information), Error Control(Allows the recipient of data to let the sender know whether the expected data frame was not received or whether it was received but is corrupted.)
 
-Synchronizing transmissions - Senders and Receivers of data frames need to coordinate when a data frame is being transmitted and should be received.This works by three methods` Isochronous (network devices look to a common device in the network as a clock source, which creates fixed-length time slots),Asynchronous (network devices reference their own internal clocks, and network devices do not need to synchronize their clocks.Instead, the sender places a start bit at the beginning of each data frame and a stop bit at the end of each data frame.),Synchronous(two network devices that want to communicate between themselves must agree on a clocking method to show the beginning and ending of data frames.)
+Synchronizing transmissions - Senders and Receivers of data frames need to coordinate when a data frame is being transmitted and should be received.This works by three methods:
+Isochronous (network devices look to a common device in the network as a clock source, which creates fixed-length time slots).
+Asynchronous (network devices reference their own internal clocks, and network devices do not need to synchronize their clocks.Instead, the sender places a start bit at the beginning of each data frame and a stop bit at the end of each data frame).
+Synchronous(two network devices that want to communicate between themselves must agree on a clocking method to show the beginning and ending of data frames)
 
 - - - - - - -
 	  #Layer 3: Network Layer
@@ -51,7 +54,7 @@ Switching - is making decisions about how data should be forwarded.there are thr
   Circuit Switching: Dynamically brings up a dedicated communication link between two parties for those parties to communicate.
   Message Switching: is usually not well suited for real-time applications because of the delay involved.A data stream is divided into messages, and each message is tagged with a destination address, and the messages travel from one network device to another network device on the way to their destination.Because these devices might briefly store the messages before forwarding them , a network using message switching is sometimes called a store-and-forward network.
 
-Route discovery and selection - A router can maintain a routing table indicating how to forward a packet based on the packet's destination network addresses.A router have its routing table populated via manual configuration, via dynamic routing protocol, or simply be bing directly connected to certain networks.
+Route discovery and selection - A router can maintain a routing table indicating how to forward a packet based on the packet's destination network addresses.A router have its routing table populated via manual configuration, via dynamic routing protocol, or simply being directly connected to certain networks.
 Connection Services - at the network layer can improve the communication reliability if the data link's LLC sublayer is not performing connection services.There two techniques in network layer:
 	Flow control: helps prevent a sender from sending data more rapidly than the receiver is capable of receiving it.
 	Packet reordering: allows packets to be placed in the proper sequence as they are sent to the receiver.This might be necessary because some networks support load balancing, where multiple links are used to send packets between two devices.Because multiple links exist, packets might arrive out of order.
@@ -63,7 +66,7 @@ Two common transport layer protocols are TCP and UDP:
 TCP(Transport Control Protocol) - is a connection-oriented transport protocol, which offers reliable transport, in that if a segment is dropped, the sender can detect the drop and retransmit the dropped segment.Specifically, a receiver acknowledges segments that it receives.
 UDP(User Datagram Protocol) - is a connectionless transport protocol, which offers unreliable transport, in that if a segment is dropped, the sender is unaware of the drop, and no retransmission occurs.
 - -
-Two common flow control approaches at Layer 4 are Windowsing and Buffering.
+Two common flow control approaches at Layer 4 are Windowing and Buffering.
 
 #Windowing: TCP communication uses windowing, in that one or more segments are sent at one time, and a receiver can attest to the receipt of all the segments in a window with a single acknowledgment.In some cases, TCP uses a sliding window, where the window size begins with one segment.If there is a successful acknowledgment of that one segment, the window size doubles to two segments, then four,eight, etc.This exponential increase in window size continues untill the receiver does not acknowledge successful receipt of all segments within a certain amount of time(RTT'Round Trip Time', until a configured maximum window size is reached.)
 
@@ -104,19 +107,18 @@ The session layer is responsible for setting up, maintaing , and tearing down se
 		The user clicks "Logout", or the session times out due to inactivity.
 		The server closes the session securely.
 - - - - - - - - - - -
-		#Layer 6: Presentaion Layer
+		#Layer 6: Presentation Layer
 
-Cnonsists of Data Formatting and Encryption
+Consists of Data Formatting and Encryption
 
 Data Formatting: The presentation layer handles formatting the text(or other types of data, such as multimedia or graphics files) in a format that allows compatibility between the communicating devices.
 Example(A Windows sytem(UTF-16) sends text to a Linux system(UTF-8))
 Encryption: Encrypts the data in such a way that if the data were intercepted, a third party would not be able to decrypt it.(SSL/TLS)
 
-	Real-World Example
-Email Transfer
-	You send an email with an image attached.
-	The Presentation Layer converts the image into Base64 so it can be transferred as text.
-	The recipient's system decods it back into an image.
+Real-World Email Transfer Example:
+You send an email with an image attached.
+The Presentation Layer converts the image into Base64 so it can be transferred as text.
+The recipient's system decodes it back into an image.
 - - - - - - - - - - - -
 		#Layer 7: Application Layer
 
