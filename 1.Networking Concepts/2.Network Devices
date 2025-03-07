@@ -1,0 +1,25 @@
+Network Devices👨‍💻
+(Chapter 2)
+
+Device - Description - Key Points
+Router - Connects networks - A router uses the software-configured network address to make forwarding decisions.
+
+Switch - Connects devices on a twisted-pair network - A switch forwards data to its destination by using the MAC address embedded in each packet. It forwards data only to nodes that need to receive it.
+
+Multilayer Switch - Functions as a awitch or router - Operates on Layers 2 and 3 of the OSI model as a switch and can perform router functionality.
+
+Firewall - Provides controlled data access between networks - Firewalls can be hardware or software based. They are an essential part of a network’s security strategy.
+
+IDS/IPS - Detects and prevents intrusions - Monitors the network and attempts to detect/prevent intrusion attempts.
+
+Load balancer - Distributes network load - Load balancing increases redundancy and performance by distributing the load to multiple servers.
+
+Proxy - Sends resource requests on behalf of network clients - Can add to the security and bandwidth efficiency of the network.
+
+Network Attached Storage (NAS) - Centralized storage device that connects to a network - Provides scalability and flexibility for the large amounts of storage today.
+
+Storage Area Network (SAN) - A high-speed network that connects storage devices to servers - Allows mulitple servers to easily and efficiently access large amounts of storage.
+
+Access Point (AP) - Enables wireless devices to connect to wireless and wired networks - Should provide the latest in security standards to help reduce security breaches.
+
+Controller - Used with branch/remote office deployments for wireless authentication - When an AP boots, it authenticates with a controller before it can start working as an AP.

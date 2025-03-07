@@ -1,0 +1,175 @@
+	#Network Topology, Architecture and Types (Chapter 6)
+
+IEEE (Institute of Electrical and Electronics Engineers) - an internationally recognized standards body
+
+- - - - - - - -
+
+LAN (Local Area Network) - interconnects network components within a local area (for example, within a building).
+
+WLAN (Wireless Local Area Network) - LAN made up of wireless network devices.
+
+WAN (Wide Area Network) - interconnects network components that are geographically seperated(for example, corporate headquarters can have multiple WAN connections to remote office sites).
+
+SAN (Storage Area Network) - a network, which is high-speed, highly reliable, for the express purpose of transmitting stored data.
+
+CAN (Campus Area Network) - a network, that connects multiple buildings within a limited geographical area (such as a university, corporate campus, or military base).
+
+MAN (Metropolitan Area Network) - a network, that spans an entire city or large area, connecting multiple LANS and CANs over a larger geographical region.
+
+PAN (Personal Area Network) - a network, whose scale is even smaller than LAN(for example, a connection between a PC and a digital camera via a universal serial bus'USB' cable could be considered a PAN.)
+
+WAN < MAN < CAN < LAN < PAN
+- - - - - - - - -
+
+Client/Server Model
+
+A central server provides services/data to multiple clients(devices).For Example , Websites, email servers, cloud storage, etc...
+
+Pros:
+	Centralized management(easy to control)
+	Better security(admin controls access)
+	Handles many users efficienlty(scalable)
+Cons:
+	Needs a powerful server(expensive)
+	If the server fails, everything stops
+
+- - -
+
+Peer-to-Peer(P2P) Model
+
+All devices(peers) are equal and share resources directly without a central server.For example(Torrenting, LAN gaming, Bluetooth file sharing).
+
+Pros:
+	No central point of failure(more reliable)
+	Cheaper(no need for expensive servers)
+	Scalable(more peers = more resources)
+Cons:
+	Harder to secure(no central control)
+	Slower for large networks(no dedicated management)
+
+- - -
+
+Cloud Networking
+
+Cloud Networking is the use of cloud-based resources to manage, control, and connect networks instead of using traditional on-premises hardware.(Everything is virtualized)
+
+Pros:
+	Scalable(Expand or reduce network size easily)
+	Cost-Effective(No need for expensive on-site hardware)
+	Accessible Anywhere(Managed remotely via the internet)
+Cons:
+	Depends on Internet
+	Security Risks(Data is stored outside your control)
+	Latency Issues(Can be slower than local neworking)
+
+___ ___ ___ ___
+
+Point-to-Point(P2P) Topology
+
+Direct connection between two devices.(For Example, Ethernet cable between two computers)
+
+Pros: Fast & Secure(no interference)
+Cons: Not Scalable(only two devices)
+- - -
+Star Topology
+
+All devices connect to a central switch/hub.(For Example, Home Wi-Fi router with multiple devices)
+
+Pros: Easy to manage & troubleshoot.If one device fail, others work.
+Cons: Central hub failure(entire network down)
+
+- - -
+Hub-and-Spoke Topology
+
+Like star topology, but used in WANs.(For example, branch offices connected to HQ via VPN)
+
+Pros: Cost-effective(only one central link needed).Easier to manage than full mesh.
+Cons: Central hub failure disrupts all-spokes.
+
+- - -
+Full-Mesh Topology
+
+Every device is directly connected to every other device in the network.It creates a redundant and highly resilient network.Every node connects to all other nodes.(For Example, a data center with multiple servers interconnected for reliability).
+W = N * (N - 1)/2, where W = the number of WAN links and N = the number of sites.
+
+Pros:
+	High redundancy(if one link fails, data can take another route)
+	No single point of failure(ensures network reliabilty)
+	Fast data transfer(direct communication between devices)
+Cons:
+	High cost(requires more cables and hardware, making it expensive)
+	Complex setup(managing connections can be difficult as the network grows)
+- - -
+Partial-Mesh Topology
+
+Network setup where some devices are directly connected to each other, but not all devices are interconnected.It's a compromise between full-mush and other simpler topologies.
+
+Pros:
+	Less expensive than full-mesh(Fewer cables and devices required)
+	Improved redundancy(Some level of backup connectivity between devices)
+	Scalable(Easier to expand than full-mesh)
+Cons:
+	Some points of failure(Not all devices have backup connections)
+	Not as reliable as full-mesh(if a critical goes down, it may disrupt communications)
+
+- - - -
+----------Three-Tier Hierarchical Model-------
+
+The model helps seperate the logical functions of the network and ensures that hardware and software are targeted correctly.It divides the network into three main layers: Access Layer, Distribution Layer, and Core Layer.Each layer has specific roles, and each is designed to meet different needs, improving network performance and manageability.
+- - -
+1.Access Layer(Edge Layer)
+
+This layer is the closest to the end users (like laptops, desktops, and smartphones).It provides users with easy access to the network in a high-bandwidth manner.
+DEVICES: *End-user devices: laptops, desktops, tablets, smartphones.
+	     *Layer2 switches(often called access layer switches).
+	     *Wireless Access Points(APs).
+Purpose: It controls user access and defines the equipment required to connect end-user devices to the network.
+- - -
+2.Distribution Layer(Aggregation Layer)
+
+This layer connects the access layer to the core network.It is critical for linking devices in the access layer to the broader network and external resources(like cloud services, remote data centers).
+DEVICES: *High-speed routers.
+	     *Multilayer switches.
+	     *Firewalls.
+	     *Intrusion Prevention Systems(IPS).
+	     *Proxy Servers.
+Purpose: Acts as a mediator and ensures efficient communication between the access layer and core network, with high-speed data transmission and security.
+- - -
+3.Core Layer(Backbone Layer)
+
+The core layer is responsible for moving large volumes of data between key network locations(data centers, or between locations in an enterprise).It provides speed and high-performance data transfer.
+
+DEVICES: *High-speed routers.
+	     *High-speed multilayer switches.
+Purpose: This layer is focused on speed, reliability, and redundancy, ensuring that large amounts of data are transferred quickly across the network.
+-------------Spine and Leaf Model-------------
+
+A modern network topology designed for high-speed, low-latency, and scalable data center networking.
+
+Two-Tier Structure: 1)Leaf Switches - Directly connect to servers and storage systems.
+					2)Spine Switches - Provide high-speed interconnections between leaf switches.
+
+NO direct connection between leaf switches - All traffic goes through the spine layer.
+Each leaf switch connects to every spine switch - Ensures equal latency and load balancing.
+
+			   *Scalablity (easily expand by adding more leaf/spine switches)
+Advantages  -  *Low Latency (Equal hop count between any two edpoints)
+			   *High Redundancy (Multiple paths prevent single points of failure)
+			   *Better Load Balancing (Traffic spreads across all spine switches)
+-----
+
+Spine-Leaf vs. Traditional Three-Tier Model
+
+|----------------------------------------------------------------------------------|
+|Feature 		  |  Spine-Leaf		      |	Three-Tier(Core, Distribution, Access) |
+|-----------------|-----------------------|----------------------------------------|
+|Scalability	  |	High  			      |	Limited						           |
+|Latency 		  | Low(Two hops max)     |	Higher						           |
+|Redundancy	      | Full Mesh(resilient)  |	Less resilient					       |
+|Ideal Use Case   |	Data Centers		  |	Enterprise Networks				       |
+|----------------------------------------------------------------------------------|
+
+#Traffic Flow
+
+North-South Traffic Flows: In the classic three-tier model, most traffic flows are north to south(and also south to north).This describes traffic moving from the core to the access layer and vice versa.
+East-West Traffic Flows: In the newer spine and leaf type architecture , most traffic flows tend to be east to west (and vice versa).In this architecture , virtual machines and/or containers communicate with each other over east-west flows.
