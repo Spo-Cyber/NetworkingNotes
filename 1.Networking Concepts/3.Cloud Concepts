@@ -1,1 +1,53 @@
-Cloud
+		#Cloud Concepts
+
+NFV(Network Functions Virtualization)
+
+NFV is a process for virtualizing aspects of a network such as security, storage, compute, and monitoring services.
+Examples of network functions that can be virtualized with NFV are numerous and include: Routing, Switching, Firewalling, Load Balancing, Content Delivery Networking(CDN), Network Monitoring
+
+- - - - - - - - - - - -
+#Cloud Networking Components
+
+VPC(Virtual Private Cloud) - A virtual network environment within a cloud computing platform, such as AWS(Amazon Web Services), that enables users to provision and manage a logically isolated section of the cloud where they can deploy and run their resources with control over IP addressing, routing, and security configurations.You have complete control over your virtual networking environment, including the selection of you IP address range, creation of subnets, and configuration of route tables and network gateways.
+- -
+Network Security Groups(Operates on Instance/Subnet Level) - An access control list that protects virtual machine resources in the cloud.This list specifies the type and source of traffic that is permitted to flow into and out of the cloud-based virtual machine.AWS applies a security group by attaching the security group to the vNIC(virtual Network Interface Card) of a virtual machine.This allows the security group to easily control(like firewall) the traffic entering and exiting the virtual machine instance.
+- -
+Network Security Lists(Operates on Subnet Level) - An access control list (in AWS called NACL(network access control list)) that protects entire subnets in a virtual private cloud.These lists seek to control traffic flows into and out of an between subnets in the VPC.
+- -
+Cloud Gateways - Network infrastructure component or service that provides secure and efficient connectivity between on-premises(your local network) networks or devices and cloud-based resources, applications, or services.It helps devices in your local network communicate with cloud applications, storage, or services efficiently.It manages the secure flow of data between your local network and the cloud.It forwards requests from your local network to the cloud and vice versa.Can filter and control access to ensure only authorized traffic reaches the cloud.
+
+Internet Gateway: Connects resources hosted in virtual private clouds to external networks.This connectivity enables bidirectional communication while ensuring security and scalability.It allows organizations to build, deploy, and manage cloud-based applications with flexibility and efficiency, while also providing robust access control mechanisms and integration options for establishing secure connections with on-premises infrastructure.
+
+NAT(Network Address Translation) Gateway: Translates outgoing traffic from private IP addresses of instances within the VPC into public IP addresses, allowing them to communicate with external networks while hiding their internal addresses.
+
+- - - - - - - - - - - -
+#Deployment Models
+
+Cloud Computing can be deployed in three main models: Private Cloud, Public Cloud, and Hybrid Cloud.
+- -
+Private Cloud (For One Organization Only - Can be on-premises(inside the company's own data center) or off-premises(hosted by a provider but still private).
+Pros: More control over security and performance.Can be customized for business needs.
+Cons: Expensive to set up and maintain.Requires IT expertise to manage.
+Example: A bank builds its own private cloud to store and process secure financial transactions without sharing resources with others.
+- -
+Public Cloud (Shared & Open for Many Users) - A cloud owned and managed by a provider (like AWS, Azure, Google Cloud).Open for multiple users(organizations or individuals).Cloud resources (servers, storage, etc.) are shared among customers.
+Pros: Scalable - Can easily add or remove resources.Cost-effective - no need to but hardware.Managed by providers.
+Cons: Less control over security compared to a private cloud.Data privacy concerns since resources are shared.
+Example: Netflix runs its services on AWS, meaning its servers, storage, and databases exist in AWS's public cloud infrastructure.
+- -
+Hybrid Cloud (Mix of Private + Public Cloud) - A combination of private and public clouds.Businesses use a private cloud for sensitive data and a public cloud for less critical tasks.Connected by a secure network for data and application sharing.
+Pros: Best of both worlds - control + scalability.Can keep sensitive data secure while using cost-effective public cloud for other tasks.
+Cons: Complex to manage dut to integration between private and public clouds.Security risks if not configured properly.
+
+- - - - - - - - - - - - -
+#Service Models
+
+Cloud services are typically offered using one of several "as a service" models.
+
+- -
+IaaS(Infrastructure as a Service): With IaaS, the company rents virtualized servers(which are hosted by a service provider) and runs specific applications on those servers.
+SaaS(Software as a Service): With SaaS, the details of the servers are hidden from the customer, and the customer's experience is similar to the experience of using a web-based application.Examples of SaaS in use today include Gmail, Microsoft 365, and Google Docs.
+PaaS(Platform as a Service): PaaS provides a development platform for companies that are developing applications and want to focus on creating the software without having to worry about the servers and infrastructure that are being used for that development.
+- - - - - - - - - - - - -
+#Key Cloud Concepts
+
