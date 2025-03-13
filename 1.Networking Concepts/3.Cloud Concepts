@@ -54,3 +54,20 @@ PaaS(Platform as a Service): PaaS provides a development platform for companies 
 Cloud Connectivity Options
 
 Secure Protocols such as HTTPS, TLS and SSH are necessary when accessing most cloud resources.Massive cloud providers such as AWS make it simple to securely connect using a wide variety of methods, including hardware VPN appliances located at your corporate or home office.
+Direct Connect is a dedicated network service that establishes private, high-speed, and reliable connections between an organization's on-premises data center or network and the AWS cloud.Direct Connect enables secure and consistent access to AWS resources with reduced latency and increased data transfer efficiency.
+- - -
+Multitenancy
+
+Multitenancy is a situation in which physical servers in the public cloud infrastructure are hosting workloads for many different customers.Your VMs might be located on the same physical server as the VMs of others.
+- - -
+Elasticity
+
+Elasticity is the ability of a cloud solution to grow and shrink as needed by adding or subtracting resources to provide larger or smaller systems.
+- - -
+Scalability
+
+Scalability refers to a solution's ability to grow with need or demand.
+
+Key Difference between Scalability and Elasticity:
+*Scalability is about increasing or decreasing resources over time to match demand, but it doesn't necessarily happen automatically - it's often something you control.
+*Elasticity is about automatically adjusting resources in real-time to match changing demand without manual intervention.
