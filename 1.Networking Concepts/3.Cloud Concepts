@@ -50,4 +50,7 @@ SaaS(Software as a Service): With SaaS, the details of the servers are hidden fr
 PaaS(Platform as a Service): PaaS provides a development platform for companies that are developing applications and want to focus on creating the software without having to worry about the servers and infrastructure that are being used for that development.
 - - - - - - - - - - - - -
 #Key Cloud Concepts
+- - -
+Cloud Connectivity Options
 
+Secure Protocols such as HTTPS, TLS and SSH are necessary when accessing most cloud resources.Massive cloud providers such as AWS make it simple to securely connect using a wide variety of methods, including hardware VPN appliances located at your corporate or home office.
