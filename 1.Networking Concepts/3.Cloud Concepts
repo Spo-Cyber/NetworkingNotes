@@ -37,7 +37,7 @@ Example: Netflix runs its services on AWS, meaning its servers, storage, and dat
 - -
 Hybrid Cloud (Mix of Private + Public Cloud) - A combination of private and public clouds.Businesses use a private cloud for sensitive data and a public cloud for less critical tasks.Connected by a secure network for data and application sharing.
 Pros: Best of both worlds - control + scalability.Can keep sensitive data secure while using cost-effective public cloud for other tasks.
-Cons: Complex to manage dut to integration between private and public clouds.Security risks if not configured properly.
+Cons: Complex to manage due to integration between private and public clouds.Security risks if not configured properly.
 
 - - - - - - - - - - - - -
 #Service Models
@@ -71,3 +71,4 @@ Scalability refers to a solution's ability to grow with need or demand.
 Key Difference between Scalability and Elasticity:
 *Scalability is about increasing or decreasing resources over time to match demand, but it doesn't necessarily happen automatically - it's often something you control.
 *Elasticity is about automatically adjusting resources in real-time to match changing demand without manual intervention.
+__________________________________________________________
