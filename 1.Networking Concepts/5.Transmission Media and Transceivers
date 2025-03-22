@@ -1,0 +1,290 @@
+					#Transmission Media and Transceivers
+______________ ______________ ______________ ______________ ______________
+--------------------------------------------------------------------------
+	#Wireless
+
+ISM(Industrial,Scientific,Medical) Frequency Bands
+Two of these bands are commonly used for WLANs.Specifically WLANs use the range of frequencies in the 2.4GHz-(2483.5MHz) range(commonly referred to as the 2.5GHz band) or in the 5.725GHz-5.875GHz range(commonly referred to as the 5GHz band).
+So the total available bandwidth in the range of 2.4GHz is 83.5MHz in which can only be allocated 3 times of 22MHz.
+
+- - Note - -
+The latest wireless standard, 802.11ax(WiFi 6), takes WiFi operation to the 6GHz frequency.WiFi 6 uses up to 14 additional 80MHz channels or 7 additional super-wide 160MHz channels in the 6GHz band.This new technology is ideal for applications such as high-definition video streaming and virtual reality.
+
+
+Within each band(e.g. 2.4GHz,5GHz) are specific frequencies(or channels) at which wireless devices operate.WiFi channels should be selected carefully to minimize interference.Wireless survey tools help analyze channel usage in the environment.WiFi signals can spill into nearby channels, causing interference even if different channels are selected."Heat maps" provide a visual representation of wireless signal strength."Site surveys" are essential for ensuring good WiFi Coverage and avoiding dead zones.
+
+Hertz(Hz) = signal cycles per second, not directly bits per second.(e.g. 2Hz = 2 cycle per second)
+Data transmission speed depends on modulation(e.g. QAM'Quadrature Amplitude Modulation') and channel bandwidth.
+More advanced modulation (e.g. 256-QAM, 1024-QAM) allows more bits per cycle, increasing speed.
+WiFi routers support multiple channels, but devices share available bandwidth.
+160MHz WiFi channels = 8x20MHz channels combined , boosting speeds.
+Devices don't always get separate channels; they share bandwidth as needed.
+
+Non-overlapping channels are a set of wireless frequency channels that do not interfere with each other.For example, in the 2.4GHz band, channels (1,6,11) are non overlapping channels for WiFi networks.Even though some countries use channel 14 as a non-overlapping channel, but it is not supported in the United States.
+
+- - - - - - - - - - - - -
+#Transmission Methods
+
+Each channel has a central frequency, but it spreads across multiple frequencies.A channel does not use a single frequency but a range of closely spaced frequencies.The frequencies are close together, keeping the signal within a small range.This is a transmission method called "Spread Spectrum".
+
+
+The four variations of spread-spectrum technology:
+
+1.DSSS(Direct-sequence spread spectrum) - spreads data across a wide frequency range using small units called 'chips'.Chips are shorter than bits and transmit faster than actual data.DSSS adds random-looking data, making it hard to intercept without knowing the pattern.
+
+2.FHSS(Frequency-hopping spread spectrum) - allows the participants in a communication to hop between predetermined frequencies.Security is enhanced because the participants can predict the next frequency to be used but a third party cannot easily predict the next frequency.
+Example` you and your friend change radio channels every second according to a secret list.At 0s you talk on 6MHz, at 1s you switch to 14Mhz, at 2s you switch to 3MHz ... and so on.
+
+3.OFDM(Orthogonal frequency-division multiplexing) - Instead of sending all data on a single frequency, OFDM splits data into 52 smaller parts.Each part is sent over a different frequency at the same time, but with slower speed for each part.The slower speeds for each part(subcarriers) help the system manage signal quality and reliability, which ultimately ensures that data is transmitted more clearly.
+
+4. OFDMA(Orthogonal Frequency-Division Multiple Access) - OFDMA divides the available frequency into smaller parts to share it among multiple devices at once.
+
+- - - - - - - - - - - - -
+#WLAN Standards(802.11)
+
+Most modern WLAN standard are variations of the original IEEE 802.11 standard, which was developed in 1997.
+
+802.11a = The 802.11a WLAN standard, which was ratified in 1999, supported speeds as high as 54Mbps.Other supported data rates (which could be used if conditions were not suitable for the 54Mbps rate) included 6Mbps, 9Mbps, 12Mbps, 18Mbps, 24Mbps, 36Mbps, and 48Mbps. The 802.11a standard used the 5GHz band and used the OFDM transmission method.
+
+802.11b = The 802.11b WLAN standard, which was ratified in 1999, supported speeds as high as 11Mbps. However, 5.5Mbps was another supported data rate. The 802.11b standard used the 2.4GHz band and used the DSSS transmission method.
+
+802.11g = The 802.11g WLAN standard, which was ratified in 2003, supported speeds as high as 54Mbps. Like 802.11a, 802.11g also supported data rates of 6Mbps, 9Mbps, 12Mbps, 18Mbps, 24Mbps, 36Mbps, and 48Mbps.802.11g used either the OFDM or the DSSS transmission method.
+
+802.11n(WiFi 4) = The 802.11n WLAN standard, which was ratified in 2009, supports a wide variety of speeds, depending on its implementation.Although the speed of an 802.11n network could exceed 300Mbps (through the use of *channel bonding).An 802.11n WLAN can operate in the 2.4GHz band, the 5GHz band, or both simultaneously. 802.11n uses the OFDM transmission method.One way 802.11n is better compared to earlier WiFi standards is by using a technology called **multiple input, multiple output (MIMO).
+
+802.11ac(WiFi 5) = 802.11ac is a 5GHz standard that uses more simultaneous streams than 802.11n and features ***multi-user MIMO (MU-MIMO).Thanks to 802.11ac technology, a single 80MHz stream supports 433Mbps.
+
+802.11ax(WiFi 6) = 802.11ax (WiFi 6) is up to 30% faster than WiFi 5 (802.11ac), but even more exciting are its lower latency, more simultaneously deliverable data, and improved power efficiency.WiFi 6 is the first iteration of 802.11 to include OFDMA (which is an improvement on OFDM). 
+
+- -
+*Channel bonding - With channel bonding, two wireless bands are logically bonded together, forming a band with twice the bandwidth of an individual band.Some literature refers to channel bonding as 40MHz mode, which is the bonding of two adjacent 20MHz bands into a 40MHz band
+- -
+** MIMO(Multiple Input Multiple Output) - Uses multiple antennas for transmission and reception.These antennas do not interfere with one another, thanks to MIMO’s use of spatial multiplexing, which encodes data based on the antenna from which the data will be transmitted.While it uses multiple antennas to send and receive data, but it still communicates with one device at a time.
+- -
+*** MU-MIMO(Multi-User MIMO) is an enhancement over the original MIMO technology. It allows antennas to be spread over a multitude of independent access points. Thanks to 802.11ac technology, a single 80MHz stream supports 433Mbps.Allows the router to communicate with multiple devices at the same time.
+- -
+
+- - - - - - - - - - - - -
+Cellular
+
+A wireless technology , which is used on cell phones.Some cellular phone technologies, such as Long-Term Evolution(LTE), which supports a 100Mbps data rate for mobile devices and a 1Gbps data rate for stationary devices, can be used to connect a mobile device such as a smartphone to the Internet.
+Other technologies for cellular phone include the older 2G(Edge), which offers slow data rates.2G was improved upon with 3G, in addition to the newer 4G,5G,LTE, and Evolved High-Speed Packet Access(HSPA+)
+
+Tethering allows a smartphone's data connection to be used by another device, such as a laptop.Also, mobile hotspots are growing in popularity because these devices connect to a cell phone company's data network and make that data network available to nearby devices(typically, a maximum of 5 devices) via wireless networking technologies.
+
+- - - - - - - - - - - - -
+Satellite
+
+1)Data request getting sent from user's dish antenna to a satellite.
+2)Satellite relays the signal to a ground station NOS(Network Operations Center)
+3)NOS connect to the Internet and sends data back via the same path.
+
+Cons: High latency (~500)(especially in geostationary satellites), Weather Sensitive,Expensive compared to fiber or mobile networks.
+______________ ______________ ______________ ______________ ______________
+--------------------------------------------------------------------------
+	#Copper and Fiber Media and Connectors
+
+A network is an interconnection of devices.Those interconnections occur over some type of media.The media might be physical(copper/fiber-optic cable), or might be the air, through which radio waves propagate(as is the case with wireless networking technologies).
+
+- - - - - - - - - - - - -
+#Coaxial Cable
+
+Consists of two conductors (inner and outer by which the inner is surrounded, sometimes made of a metallic foil or woven wire).
+Because the inner conductor is shielded by the metallic outer conductor, coaxial cable is resistant to electromagnetic interference (EMI).For example, EMI occurs when an external signal is received on a wire and might result in a corrupted data transmission.
+- - Note - -
+The term electromagnetic interference (EMI) is sometimes used interchangeably with the term radio frequency interference (RFI).
+
+- -
+There are three common type of coaxial cables:
+RG-59 = Typically used for short-distance applications, such as carrying composite video between two nearby devices. This cable type has loss characteristics such that it is not right for long-distance applications. RG-59 cable has a characteristic impedance of 75 ohms.
+
+RG-6 = Used by local cable companies to connect individual homes to the cable company’s distribution network. Like RG-59 cable, RG-6 cable has a characteristic impedance of 75 ohms.
+
+RG-58 = Has loss characteristics and distance limitations like those of RG-59. However, the characteristic impedance of RG-58 is 50 ohms, and this type of coax was popular with early 10BASE2 Ethernet networks.
+- -
+
+Common connectors used on a coaxial cables:
+BNC: A Bayonet Neill-Concelman (BNC) connector (British Naval Connector in some literature) can be used for a variety of applications, including as a connector in a 10BASE2 Ethernet network. A BNC coupler could be used to connect two coaxial cables together back-to-back.
+F-connector: F-type connectors are used with coaxial cable, most commonly to connect cable modems and TVs. F-type connectors are screw-type connectors.
+
+- - - - - - - - - - - - -
+#Twisted Pair Cable
+
+Two categories of twisted-pair cable are shielded twisted pair (STP) and unshielded twisted pair (UTP).
+A UTP coupler could be used to connect two UTP cables, back-to-back. 
+
+- -
+STP(Shielded Twisted Pair): If wires in a cable are not twisted or shielded, the cable can act as an antenna, which might receive or transmit EMI. To help prevent this type of behavior, the wires can be twisted together in pairs.
+One option for supporting higher frequencies is to surround a twisted pair in a metallic shielding, similar to the outer conductor in a coaxial cable. This type of cable is referred to as a shielded twisted-pair (STP) cable.More expensive that UTP.The colors are green/white,orange/white,brown/white,blue/white.
+
+- -
+UTP(Unshielded Twisted Pair): Another way to block EMI from the copper strands making up a twisted-pair cable is to twist the strands more tightly (that is, more twists per centimeter). With the strands wrapped tightly around each other, the wires insulate each other from EMI.The colors are blue/bluewhite,brown/brownwhite,orange/orangewhite,green/greanwhite.
+UTP cable types vary in their data-carrying capacity, more commonly known as cable speeds.
+
+- -
+Common categories of STP and UTP cables include the following:
+Category 5:
+	Used in: Ethernet 100BASE-TX (100 Mbps).
+	Supports: ATM traffic at 155 Mbps (Asynchronous Transfer Mode).
+	Structure:
+	    4 pairs of 24-gauge twisted-pair wires.
+	    Each pair has different twists per meter (average 1 twist per 5 cm).
+	Function: Transmits voice, video, and data over a single network.
+	Replaced by: Cat 5e, Cat 6, Cat 6a for higher speeds and less interference.
+
+Category 5e:
+	Improved version of Cat 5 with better performance.  
+	Used in: 1000BASE-T (Gigabit Ethernet) (1 Gbps).  
+	Main Improvement: Reduced crosstalk (less interference between wires).  
+	Crosstalk: Occurs when signals from adjacent wires interfere with each other.  
+	Replaced by: Cat 6, Cat 6a for even higher speeds & less interference.
+
+Category 6:
+	Used in: 1000BASE-T (Gigabit Ethernet, 1 Gbps).
+	Structure:
+	    Some use thicker conductors (22 or 23-gauge), but some use 24-gauge like Cat 5e.
+	    Thicker insulation for better signal quality.
+	Improvement over Cat 5e:
+	    Even lower crosstalk (less interference).
+	    Better performance for high-speed networks.
+	Supports up to 10 Gbps over short distances (up to 55m).
+
+Category 6a:
+	Improved version of Cat 6 with twice the frequency support.
+	Used in: 10GBASE-T networks (10 Gbps).
+	Better shielding & insulation → Reduced crosstalk & interference.
+	Maximum distance for 10 Gbps: 100 meters (vs. 55m for Cat 6).
+
+Category 7:
+	Cat 7 is not an IEEE standard, and it is not very popular as a result. This very strict specification supports 10Gbps over 100 m using copper media.
+
+Category 8:
+	Cat 8 is capable of 40Gbps speeds. As you might guess, however, this speed comes at a cost. Cat 8 supports distances of only 30 to 36 m, depending on the patch cables used. These short distances and very high speeds are ideal for connections in a data center between high-speed multilayer switches.
+
+Most UTP cabling used in today’s networks is considered to be straight-through, meaning that the RJ45 jacks at each end of a cable have matching pinouts.However, some network devices cannot be interconnected with a straight-through cable. For example, consider two PCs interconnected with a straight-through cable. Because the network interface cards (NICs) in these PCs use the same pair of wires for transmission and reception, when one PC sends data to the other PC, the receiving PC would receive the data on its transmission wires rather than its reception wires. For such a scenario, you can use a crossover cable, which swaps the transmit and receive wire pairs between the two ends of a cable.
+
+- -
+Twisted-Pair Connectors:
+RJ45: A type 45 registered jack (RJ45) is an eight-pin connector found in most Ethernet networks. However, most Ethernet implementations only use four of the eight pins.
+
+RJ11: A type 11 registered jack (RJ11) has the capacity to be a six-pin connector. However, most RJ11 connectors have only two or four conductors. An RJ11 connector is found in most home telephone networks. However, most home phones use only two of the six pins.
+
+DB-9 (RS-232): A nine-pin D-subminiature (DB-9) connector is an older connector used for low-speed asynchronous serial communications, such as a PC to a serial printer, a PC to a console port of a router or switch, or a PC to an external modem. Do not confuse the DB-9 with a DB-25. The DB-25 connector was also used for the serial or parallel ports of early personal computers.
+
+- -
+Plenum vs Non-plenum Cable
+
+If a twisted-pair cable is to be installed under raised flooring or in an open-air return, fire codes must be considered. For example, imagine that there was a fire in a building. If the outer insulation of a twisted-pair cable caught on fire or started to melt, it could release toxic fumes. If those toxic fumes were released in a location such as an open-air return, those fumes could be spread throughout a building, posing a huge health risk.
+
+To mitigate the concern of pumping poisonous gas throughout a building’s HVAC system, plenum cable can be used.
+
+
+- - - - - - - - - - - - -
+#Fiber-Optic Cable
+
+An alternative to copper cabling is fiber-optic cabling, which sends light (instead of electricity) through an optical fiber (typically made of glass). Using light instead of electricity makes fiber optics immune to EMI. Also, depending on the Layer 1 (physical layer) technology being used, fiber-optic cables typically have greater range (that is, a greater maximum distance between networked devices) and greater data-carrying capacity.
+
+Fiber-optic cables are generally classified according to their diameter and fall into one of two categories: multimode fiber (MMF) and single-mode fiber (SMF).The wavelengths of light also vary between MMF and SMF cables.
+Usually, wavelengths of light in an MMF cable are in the range 850–1300 nm, where nm stands for nanometers.(A nanometer is one-billionth of a meter.).
+The wavelengths of light in an SMF cable are usually in the range 1310–1550 nm. A fiber coupler could be used to connect two fiber cables, back-to-back.
+
+- -
+Multimode Fiber(MMF):
+
+Fiber-optic cables use two different types of glass.There is an inner strand of glass (that is, a core) surrounded by an outer cladding of glass, similar to the construction of the previously mentioned coaxial cable.The light injected by a laser (or LED) enters the core, and the light is prevented from leaving that inner strand and going into the outer cladding of glass. Specifically, the indexes of refraction of these two different types of glass are so different that if the light attempts to leave the inner strand, it hits the outer cladding and bends back on itself.
+The path that light takes through a fiber-optic cable is called a mode of propagation. The diameter of the core in a multimode fiber is large enough to permit light to enter the core at different angles.
+
+For example, say that the pulse of light representing the first bit intersects the core at a steep angle and bounces back and forth many times on its way to the far end of the cable, while the light pulse representing the second bit intersects the core perpendicularly and does not bounce back and forth very much. With all of its bouncing, the first bit has to travel further than the second bit, and so the bits might arrive out of order. This condition is known as multimode delay distortion. To mitigate multimode delay distortion, multimode fiber (MMF) is typically limited to shorter distances than SMF.
+
+- -
+Single-Mode Fiber:
+
+Single-mode fiber (SMF) eliminates the issue of multimode delay distortion by having a core with a diameter so small that it permits only one mode (that is, one path) of propagation.With the issue of multimode delay distortion mitigated, SMF typically can be run for longer distances than MMF.More expensive that MMF.
+
+- -
+Fiber-Optic Cable Connectors
+
+ST(Straight Tip): A straight tip (ST) connector is sometimes referred to as a bayonet connector, because of the long tip extending from the connector. ST connectors are most commonly used with MMF. You connect an ST connector to a terminating device by pushing the connector into the terminating equipment and then twisting the connector housing to lock it in place.
+
+SC(Square Connector): Different literature defines an SC connector as subscriber connector (SC), standard connector, or square connector. You connect an SC connector by pushing it into the terminating device; you can remove it by pulling the connector from the terminating device.
+
+LC(Local Connector): You connect a Lucent connector, little connector, or local connector (LC) to a terminating device by pushing the connector into the terminating device. You can remove it by pressing the tab on the connector and pulling it out of the terminating device.
+
+MTRJ(Media Termination Recommended Jack): The most unique characteristic of a media termination recommended jack (MTRJ) or mechanical transfer (MT) registered jack (RJ) connector is that two fiber strands (a transmit strand and a receive strand) are included in a single connector. You connect an MTRJ connector by pushing it into the terminating device; you can remove it by pulling the connector from the terminating device.
+
+- -
+Fiber Connector Polishing Styles
+
+Fiber-optic cables have different types of mechanical connections. The type of connection impacts the quality of the fiber-optic transmission. Listed from basic to better, the options include physical contact (PC), ultra physical contact (UPC), and angled physical contact (APC), which refer to the polishing styles of fiber-optic connectors. The different polish of the fiber-optic connectors results in different performance of the connector. The less back reflection, the better the transmission. The PC back reflection is –40 dB, the UPC back reflection is around –55 dB, and the APC back reflection is about –70 dB.
+
+- - - - - - - - - - - - -
+Ethernet and Fiber Standards(802.3)
+
+10BASE5: A popular implementation of Ethernet, in the early days, was called 10BASE5. The 10 in 10BASE5 referred to network throughput, specifically 10Mbps (that is, 10 million [mega] bits per second). The BASE in 10BASE5 referred to *baseband, as opposed to **broadband. Finally, the 5 in 10BASE5 indicated the distance limitation of 500 m. 
+
+10BASE2: 10BASE2’s actual distance and speed limitation was 185 m and 10Mbps. The cabling used in 10BASE2 networks was significantly thinner and therefore less expensive than 10BASE5 cabling.
+
+10Base-T: 10Mbps version of Ethaernet that relies on UTP cabling."T" refers to twisted-pair cabling.
+
+--
+* Baseband - uses the entire bandwidth of the medium for a single signal at a time.
+--
+** Broadband - uses multiple frequencies to carry several signals simultaneously.
+--
+
+- - - - - - - - - - - - -
+#Distance and Speed Limitations
+
+= = Note = =
+To understand the bandwidth available on networks, you need to understand a few terms. You should already know that a bit refers to one of two values. These values are represented using binary math, which uses only the numbers 0 and 1. On a cable such as twisted-pair cable, a bit could be represented by the absence or presence of voltage. Fiber-optic cables, however, might represent a bit with the absence or presence of light.
+The bandwidth of a network is measured in terms of how many bits the network can transmit during a 1-second period of time. For example, if a network has the capacity to send 10,000,000 (that is, 10 million) bits in a 1-second period of time, the bandwidth capacity is said to be 10 megabits (that is, millions of bits) per second (or Mbps)
+= = = = = =
+
+Common bandwidths supported on distinct types of Ethernet networks:
+
+--------
+Standard Ethernet = 10Mbps: 10 million bits per second (that is, 10 megabits per second).
+Fast Ethernet = 100Mbps: 100 million bits per second (that is, 100 megabits per second).
+Gigabit Ethernet = 1Gbps: 1 billion bits per second (that is, 1 gigabit per second).
+10-Gigabit Ethernet = 10Gbps: 10 billion bits per second (that is, 10 gigabits per second).
+40-Gigabit Ethernet = 40Gbps: 40 billion bits per second (that is, 40 gigabits per second).
+100-Gigabit Ethernet = 100Gbps: 100 billion bits per second (that is, 100 gigabits per second).
+--------
+
+The type of cabling used in an Ethernet network influences the bandwidth capacity and the distance limitation of the network. For example, fiber-optic cabling often has a higher bandwidth capacity and can be run longer distances than twisted-pair cabling.
+As mentioned, because of the issue of multimode delay distortion, SMF usually has a longer distance limitation than MMF.
+
+You can generally use the terms 100BASE-T and 100BASE-TX interchangeably.
+1000BASE-X refers to all Ethernet technologies that transmit data at a rate of 1Gbps over fiber-optic cabling.
+100BASE-FX is a specific Fast Ethernet standard that uses fiber optic cables for 100 Mbps transmission.
+
+- - - - - - - - - - - - -
+Transceivers
+
+The term transceiver means that the connector combines both a transmitter and a receiver in the single, efficient unit.
+GBICs are interfaces that have a bandwidth capacity of 1Gbps and are available with MMF, SMF, and UTP connectors. This allows you to have flexibility in the uplink technology you use in an Ethernet switch.Simply if a router or switch has not a port designed for a specific type of connector(fiber, coaxial) the GBIC is created for that purposes acting as additional port for router/switch.
+A smaller variant of a regular GBIC is the small form-factor pluggable (SFP), which is sometimes called a mini-GBIC.
+
+Variations of SFP are:
+SFP+(Enhanced form-factor pluggable): Generally for 10 Gbps links (a step up from regular SFP).
+QSFP(Quad small form-factor pluggable ): Designed for 40 Gbps links (four 10 Gbps lanes).
+QSFP+(Enhanced quad small form-factor pluggable): The enhanced version of QSFP, supporting 40 Gbps or 100 Gbps speeds, used in high-bandwidth environments.
+
+- - - - - - - - - - - - -
+#Multiplexing in Fiber-Optic Networks
+
+Multiplexing allows multiple communications sessions to share the same physical medium.
+
+1)Dense wavelength-division multiplexing (DWDM): DWDM uses as many as 32 light wavelengths on a single fiber, where each wavelength can support as many as 160 simultaneous transmissions using more than eight active wavelengths per fiber.
+2)Coarse wavelength-division multiplexing (CWDM): CWDM uses fewer than eight active wavelengths per fiber.
+3)Bidirectional wavelength-division multiplexing (WDM): This approach multiplexes a number of optical carrier signals onto a single optical fiber by using different wavelengths. Using this technique enables bidirectional communications over one strand of fiber and increases the overall capacity.
+
+- - - - - - - - - - - - -
+Media Converters
+
+Examples of media converters include:
+    MMF to Ethernet
+    SMF to Ethernet
+    Fiber to coaxial
+    SMF to MMF
+_____________________________________________________________________
