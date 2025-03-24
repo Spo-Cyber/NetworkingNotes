@@ -37,7 +37,7 @@ Example` you and your friend change radio channels every second according to a s
 
 3.OFDM(Orthogonal frequency-division multiplexing) - Instead of sending all data on a single frequency, OFDM splits data into 52 smaller parts.Each part is sent over a different frequency at the same time, but with slower speed for each part.The slower speeds for each part(subcarriers) help the system manage signal quality and reliability, which ultimately ensures that data is transmitted more clearly.
 
-4. OFDMA(Orthogonal Frequency-Division Multiple Access) - OFDMA divides the available frequency into smaller parts to share it among multiple devices at once.
+4.OFDMA(Orthogonal Frequency-Division Multiple Access) - OFDMA divides the available frequency into smaller parts to share it among multiple devices at once.
 
 - - - - - - - - - - - - -
 #WLAN Standards(802.11)

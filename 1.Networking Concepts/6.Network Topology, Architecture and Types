@@ -1,8 +1,10 @@
 	#Network Topology, Architecture and Types (Chapter 6)
 
-IEEE (Institute of Electrical and Electronics Engineers) - an internationally recognized standards body
+IEEE (Institute of Electrical and Electronics Engineers) - an internationally recognized standards body.
 
-- - - - - - - -
+______________ ______________ ______________ ______________ ______________
+--------------------------------------------------------------------------
+#Network Types and Characteristics
 
 LAN (Local Area Network) - interconnects network components within a local area (for example, within a building).
 
@@ -18,9 +20,13 @@ MAN (Metropolitan Area Network) - a network, that spans an entire city or large 
 
 PAN (Personal Area Network) - a network, whose scale is even smaller than LAN(for example, a connection between a PC and a digital camera via a universal serial bus'USB' cable could be considered a PAN.)
 
-WAN < MAN < CAN < LAN < PAN
-- - - - - - - - -
+WAN > MAN > CAN > LAN > PAN
 
+______________ ______________ ______________ ______________ ______________
+--------------------------------------------------------------------------
+#Networks Defined Based on Resource Location
+
+- - -
 Client/Server Model
 
 A central server provides services/data to multiple clients(devices).For Example , Websites, email servers, cloud storage, etc...
@@ -34,7 +40,6 @@ Cons:
 	If the server fails, everything stops
 
 - - -
-
 Peer-to-Peer(P2P) Model
 
 All devices(peers) are equal and share resources directly without a central server.For example(Torrenting, LAN gaming, Bluetooth file sharing).
@@ -48,7 +53,6 @@ Cons:
 	Slower for large networks(no dedicated management)
 
 - - -
-
 Cloud Networking
 
 Cloud Networking is the use of cloud-based resources to manage, control, and connect networks instead of using traditional on-premises hardware.(Everything is virtualized)
@@ -56,14 +60,17 @@ Cloud Networking is the use of cloud-based resources to manage, control, and con
 Pros:
 	Scalable(Expand or reduce network size easily)
 	Cost-Effective(No need for expensive on-site hardware)
-	Accessible Anywhere(Managed remotely via the internet)
+	Accessible Anywhere(Managed remotely via the Internet)
 Cons:
 	Depends on Internet
 	Security Risks(Data is stored outside your control)
 	Latency Issues(Can be slower than local neworking)
 
-___ ___ ___ ___
+______________ ______________ ______________ ______________ ______________
+--------------------------------------------------------------------------
+#Networks Defined by Topology
 
+- - -
 Point-to-Point(P2P) Topology
 
 Direct connection between two devices.(For Example, Ethernet cable between two computers)
@@ -75,13 +82,13 @@ Star Topology
 
 All devices connect to a central switch/hub.(For Example, Home Wi-Fi router with multiple devices)
 
-Pros: Easy to manage & troubleshoot.If one device fail, others work.
+Pros: Easy to manage & troubleshoot.If one device fails, others work.
 Cons: Central hub failure(entire network down)
 
 - - -
 Hub-and-Spoke Topology
 
-Like star topology, but used in WANs.(For example, branch offices connected to HQ via VPN)
+Like star topology in LANs, but is used in WANs.(For example, branch offices connected to HQ via VPN)
 
 Pros: Cost-effective(only one central link needed).Easier to manage than full mesh.
 Cons: Central hub failure disrupts all-spokes.
@@ -112,8 +119,9 @@ Cons:
 	Some points of failure(Not all devices have backup connections)
 	Not as reliable as full-mesh(if a critical goes down, it may disrupt communications)
 
-- - - -
-----------Three-Tier Hierarchical Model-------
+______________ ______________ ______________ ______________ ______________
+--------------------------------------------------------------------------
+#Three-Tier Hierarchical Model
 
 The model helps seperate the logical functions of the network and ensures that hardware and software are targeted correctly.It divides the network into three main layers: Access Layer, Distribution Layer, and Core Layer.Each layer has specific roles, and each is designed to meet different needs, improving network performance and manageability.
 - - -
@@ -121,10 +129,10 @@ The model helps seperate the logical functions of the network and ensures that h
 
 This layer is the closest to the end users (like laptops, desktops, and smartphones).It provides users with easy access to the network in a high-bandwidth manner.
 DEVICES: *End-user devices: laptops, desktops, tablets, smartphones.
-	     *Layer2 switches(often called access layer switches).
+	     *Layer2 switches(often called` access layer switches).
 	     *Wireless Access Points(APs).
 Purpose: It controls user access and defines the equipment required to connect end-user devices to the network.
-- - -
+- -
 2.Distribution Layer(Aggregation Layer)
 
 This layer connects the access layer to the core network.It is critical for linking devices in the access layer to the broader network and external resources(like cloud services, remote data centers).
@@ -134,7 +142,7 @@ DEVICES: *High-speed routers.
 	     *Intrusion Prevention Systems(IPS).
 	     *Proxy Servers.
 Purpose: Acts as a mediator and ensures efficient communication between the access layer and core network, with high-speed data transmission and security.
-- - -
+- -
 3.Core Layer(Backbone Layer)
 
 The core layer is responsible for moving large volumes of data between key network locations(data centers, or between locations in an enterprise).It provides speed and high-performance data transfer.
@@ -142,12 +150,13 @@ The core layer is responsible for moving large volumes of data between key netwo
 DEVICES: *High-speed routers.
 	     *High-speed multilayer switches.
 Purpose: This layer is focused on speed, reliability, and redundancy, ensuring that large amounts of data are transferred quickly across the network.
--------------Spine and Leaf Model-------------
+- - - - - - - - - - -
+#Spine and Leaf Model
 
 A modern network topology designed for high-speed, low-latency, and scalable data center networking.
 
-Two-Tier Structure: 1)Leaf Switches - Directly connect to servers and storage systems.
-					2)Spine Switches - Provide high-speed interconnections between leaf switches.
+Two-Tier Structure: 1)Leaf Switches - Directly connect to servers and storage systems.The leaf nodes do not directly connect to each other
+					2)Spine Switches - Provide high-speed interconnections between leaf switches.The spine nodes do not directly connect to each other.
 
 NO direct connection between leaf switches - All traffic goes through the spine layer.
 Each leaf switch connects to every spine switch - Ensures equal latency and load balancing.
@@ -169,7 +178,7 @@ Spine-Leaf vs. Traditional Three-Tier Model
 |Ideal Use Case   |	Data Centers		  |	Enterprise Networks				       |
 |----------------------------------------------------------------------------------|
 
-#Traffic Flow
+#Traffic Flows
 
 North-South Traffic Flows: In the classic three-tier model, most traffic flows are north to south(and also south to north).This describes traffic moving from the core to the access layer and vice versa.
 East-West Traffic Flows: In the newer spine and leaf type architecture , most traffic flows tend to be east to west (and vice versa).In this architecture , virtual machines and/or containers communicate with each other over east-west flows.
