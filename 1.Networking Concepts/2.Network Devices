@@ -5,7 +5,7 @@ Network Devices, Applications and Functions👨‍💻 (Chapter 2)
 - - -
 *Switch - Layer 2 device which connects devices on a twisted-pair network.Switches dynamically learn the MAC addresses attached to various ports by looking at the source MAC addresses on frames coming into a port.A switch forwards data to its destination by using the MAC address embedded in each packet. It forwards data only to nodes that need to receive it.When a switch receives a frame destined for a MAC address not yet present in the switch's MAC address table, the switch floods that frame out all the switch ports except the port on which the frame was received.
 - - -
-*Multilayer Switch - Functions as a switch or router.Operates on Layers 2 and 3 of the OSI model as a switch and can perform router functionality(by making forwarding decisions).
+*Multlayer Switch - Functions as a switch or router.Operates on Layers 2 and 3 of the OSI model as a switch and can perform router functionality(by making forwarding decisions).
 - - -
 *Firewall - Provides controlled data access between networks.Firewalls can be hardware or software based. They are an essential part of a network’s security strategy.Firewall appliance stands guard at the door of the network, protecting it from malicious Internet traffic.
 - - -
@@ -18,10 +18,10 @@ _
 Policy-Based Detection - The IDS/IPS device needs a specific declaration of the security policy.For example this could also identify unencrypted channels and plaintext credentials and insecure protocols such as Telnet,HTTP,FTP,etc.Secure Protocols such as SSH,HTTPS,SFTP should be used when possible to protect the confidentiality of the data flows on the network.
 _
 Anomaly-Based Detection - Statistical anomaly detection(watching network traffic patterns over a period of time and dynamically building a baseline),
-Nonstatistical anomaly detection(allows an administrator to define what traffic patterns are supposed to look like)
 
+Nonstatistical anomaly detection(allows an administrator to define what traffic patterns are supposed to look like)
 - - -
-*Load balancer - Distributes incoming network traffic across multiple servers, systems, or resources in a network, ensuring optimal utilization of resources, high availability, and improved performance.Operate at the Layer7 or Layer4 of the OSI Model and use various algorithms(round-robin,least connections, weighted distribution).
+*Load balancer - Distributes incoming network traffic across multiple servers, systems, or resources in a network, ensuring optimal utilization of resources, high availability, and improved performance.Operates at the Layer7 or Layer4 of the OSI Model and uses various algorithms(round-robin,least connections, weighted distribution).
 
 Example:
 1.A user sends a request (e.g. opening a website)
@@ -35,30 +35,29 @@ When a reply is received from the Internet , the proxy server forwards the respo
 
 Benefits:
 1.Security - because all requests going out to the Internet are sourced from the proxy server, the IP addresses of network devices inside the trusted network are hidden from the Internet.
-2.Bandwidth saving - many proxy servers perform content caching.For example , when the first client navigates to a website on the Internet , and the Internet-based web server returns its content, the proxy server not only forwards this content to the client requesting the web page but also stores a copy of the content on its hard drive.Then , when another client points its web browser to the same website, after the proxy server determines that the page has not changed, the proxy server can locally serve up the content to the client, without having to once again consume Internet bandwidth to download all the graphic elements from the Internet-based website.
+2.Bandwidth saving - many proxy servers perform content caching.For example , when the first client navigates to a website on the Internet , and the Internet-based web server returns its content, the proxy server not only forwards this content to the client requesting the web page but also stores a copy of the content on its hard drive.Then , when another client points its web browser to the same website, after the proxy server determines that the page has not been changed, the proxy server can locally serve up the content to the client, without having to once again consume Internet bandwidth to download all the graphic elements from the Internet-based website.
 3.Content filtering - Some proxy servers can perform content filtering to restrict clients from accessing certain URLs.
 
 A reverse proxy receives requests on behalf of a server or servers and replies back to the clients on behalf of those servers.Reverse proxies can also be used with load-balancing and caching to better utilize a group of servers providing scalability and high availability.
 - - -
 *Network Attached Storage (NAS) - Centralized storage device that connects to a network.Provides scalability and flexibility for the large amounts of storage today.They can also support various protocols and services, including file sharing protocols like SMB(Server Message Block) and NFS(Network File System), as well as backup and synchronization services.Additionally, many NAS devices offer other features such as media streaming, remote access, and even hosting applications like email servers or web servers, making them versatile(flexible) solutions for both home and business environments. Unlike regular servers, a NAS is designed only for storing and sharing files.NAS devices often have multiple hard drives (in an array) to increase storage capacity and protect data.Unlike traditional servers, NAS runs on a simple built-in software system optimized for file storage.NAS devices are usually always online, so users can access files anytime from any device connected to the network.
 - - -
-*Storage Area Network (SAN) - A high-speed, very specialized network that connects storage devices to servers.Allows mulitple servers to access large amounts of storage quickly and efficiently.
+*Storage Area Network (SAN) - A high-speed, very specialized network that connects storage devices to servers.Allows multiple servers to access large amounts of storage quickly and efficiently.
 
 Fiber Channel over Ethernet(FCoE) is a technology(protocol) that allows Fiber Channel storage traffic to be transmitted over Ethernet networks,eliminating the need for separate storage and network infrastructures.It encapsulates Fiber Channel frames inside Ethernet frames, allowing them to travel over an Ethernet network instead of requiring a separate Fiber Channel infrastructure.Uses high-speed Ethernet(typically 10Gbps,25Gbps,40Gbps or higher).
 - - -
-*Access Point (AP) - Enables wireless devices to connect to wireless and wired networks.All wireless devices connecting to the same AP are considered to be on the same shared network segment, which means that only one device can send data to and receive data from an AP at any one time.Should provide the latest security standards to help reduce security breaches.
+*Access Point (AP) - Enables wireless devices to connect to wireless and wired networks.All wireless devices connecting to the same AP are considered to be on the same shared network segment, which means that only one device can send data to and receive data from an AP at any one time.You should provide the latest security standards to help reduce security breaches.
 - - -
 *Controller:
 Access points have two major types: autonomous and lightweight.Lightweight access points do not have the control plane intelligence, built in , to perform their functions for the network.These devices are controlled by controllers(WLCs "Wireless LAN Controllers"), which are specialized network devices that permit the central control and management of large numbers of lightweight access points.Used with branch/remote office deployments for wireless authentication.When an AP boots, it authenticates with a controller before it can start working as an AP.
 ______________________________________________
 #Applications and Functions
 
-CDN(Content Delivery Network) - A network of geographically distributed servers that deliver web content quickly to users.It routes requests to nearest server to reduce latency and improve speed.Helps prevent server overload by distributing traffic across multiple servers.Uses caching to store frequently accessed content on edge servers, improving performance.CDNs are distributed worldwide in various data centers and are not personal but exist on the Internet.
+CDN(Content Delivery Network) - A network of geographically distributed servers that delivers web content quickly to users.It routes requests to nearest server to reduce latency and improve speed.Helps prevent server overload by distributing traffic across multiple servers.Uses caching to store frequently accessed content on edge servers, improving performance.CDNs are distributed worldwide in various data centers and are not personal but exist on the Internet.
 - - -
 VPN(Virtual Private Network) - A set of security protocols that, when implemented by two devices on either side of an insecure network such as the Internet, can allow the devices to send data securely.VPNs provide privacy, device authentication, anti-replay services, and data integrity services.VPNs provide a layer of privacy and security by encrypting data transmitted between the user's device and the VPN server, protecting it from potential eavesdropping or interception by third parties.
 - - -
 QoS(Quality of Service) - Suite of technologies that allows to strategically optimize network performance for selected traffic types.Through the use of QoS technologies, we can identify which traffic types need to be sent first, how much bandwidth to allocate to various traffic types, which traffic types should be dropped first in the event of congestion, and how to make the most efficient use of the relatively limited bandwidth of an IPWAN.
-
 *----------*
 Delay - is the time required for a packet to travel from source to destination.
 Jitter - is the uneven arrival of packets.

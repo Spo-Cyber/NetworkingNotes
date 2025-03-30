@@ -1,11 +1,11 @@
 PORTS & PROTOCOLS (Chapter 4)
 
 		| 0 - 1023 (Well-known ports)
-Ports 	| 1024 - 49151 (Registered ports)
+Ports 		| 1024 - 49151 (Registered ports)
 		| 49152 - 65535 (Used dynamically by applications)
 	
 - - -
-FTP (File Transfer Protocol) TCP/20,21 => can be used to transfer files with a remote host (which typically requires authentication of user credentials).It uses TCP ports 20 and 21 in its operation.Unfortunately, FTP users authenticate using cleartext mechanisms.
+FTP (File Transfer Protocol) TCP/20,21 => can be used to transfer files with a remote host (which typically requires authentication of user credentials).It uses TCP ports 20 and 21 in its operation.Unfortunately, FTP users authenticate using clear-text mechanisms.
 - - -
 SFTP (Secure File Transfer Protocol) TCP/22 => provides FTP file transfer service over an SSH connection.Like SSH, this secure protocol uses TCP port 22 in its operation.
 - - -
@@ -17,7 +17,7 @@ SMTP (Simple Mail Transfer Protocol) TCP/25 => is used for sending email through
 - - -
 DNS (Domain Name System) TCP,UDP/53 => is used to translate domain names, like WEB URL to IP address. DNS uses both TCP and UDP in its operations.The port used in both cases is port 53.
 - - -
-DHCP (Dynamic Host Configuration Protocol) UDP/67,68 => used to dynamically assign IP address information (for example. IP address, subnet mask, DNS server IP address, Defaul Gateway IP address) to a network device.DHCP uses UDP ports 67 and 68 in its operations.
+DHCP (Dynamic Host Configuration Protocol) UDP/67,68 => used to dynamically assign IP address information (for example. IP address, subnet mask, DNS server IP address, Default Gateway IP address) to a network device.DHCP uses UDP ports 67 and 68 in its operations.
 - - -
 TFTP (Trivial File Transfer Protocol) UDP/69 => transfers files with a remote host (does not require authentication credentials).TFTP uses UDP port 69 in its operation.
 - - -
