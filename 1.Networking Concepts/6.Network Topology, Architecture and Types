@@ -1,7 +1,6 @@
 	#Network Topology, Architecture and Types (Chapter 6)
 
 IEEE (Institute of Electrical and Electronics Engineers) - an internationally recognized standards body.
-
 ______________ ______________ ______________ ______________ ______________
 --------------------------------------------------------------------------
 #Network Types and Characteristics
@@ -10,18 +9,17 @@ LAN (Local Area Network) - interconnects network components within a local area 
 
 WLAN (Wireless Local Area Network) - LAN made up of wireless network devices.
 
-WAN (Wide Area Network) - interconnects network components that are geographically seperated(for example, corporate headquarters can have multiple WAN connections to remote office sites).
+WAN (Wide Area Network) - interconnects network components that are geographically separated(for example, corporate headquarters can have multiple WAN connections to remote office sites).
 
 SAN (Storage Area Network) - a network, which is high-speed, highly reliable, for the express purpose of transmitting stored data.
 
 CAN (Campus Area Network) - a network, that connects multiple buildings within a limited geographical area (such as a university, corporate campus, or military base).
 
-MAN (Metropolitan Area Network) - a network, that spans an entire city or large area, connecting multiple LANS and CANs over a larger geographical region.
+MAN (Metropolitan Area Network) - a network, that spans an entire city or large area, connecting multiple LANs and CANs over a larger geographical region.
 
 PAN (Personal Area Network) - a network, whose scale is even smaller than LAN(for example, a connection between a PC and a digital camera via a universal serial bus'USB' cable could be considered a PAN.)
 
 WAN > MAN > CAN > LAN > PAN
-
 ______________ ______________ ______________ ______________ ______________
 --------------------------------------------------------------------------
 #Networks Defined Based on Resource Location
@@ -30,20 +28,17 @@ ______________ ______________ ______________ ______________ ______________
 Client/Server Model
 
 A central server provides services/data to multiple clients(devices).For Example , Websites, email servers, cloud storage, etc...
-
 Pros:
 	Centralized management(easy to control)
 	Better security(admin controls access)
-	Handles many users efficienlty(scalable)
+	Handles many users efficiently(scalable)
 Cons:
 	Needs a powerful server(expensive)
 	If the server fails, everything stops
-
 - - -
 Peer-to-Peer(P2P) Model
 
 All devices(peers) are equal and share resources directly without a central server.For example(Torrenting, LAN gaming, Bluetooth file sharing).
-
 Pros:
 	No central point of failure(more reliable)
 	Cheaper(no need for expensive servers)
@@ -51,21 +46,18 @@ Pros:
 Cons:
 	Harder to secure(no central control)
 	Slower for large networks(no dedicated management)
-
 - - -
 Cloud Networking
 
 Cloud Networking is the use of cloud-based resources to manage, control, and connect networks instead of using traditional on-premises hardware.(Everything is virtualized)
-
 Pros:
 	Scalable(Expand or reduce network size easily)
 	Cost-Effective(No need for expensive on-site hardware)
 	Accessible Anywhere(Managed remotely via the Internet)
 Cons:
-	Depends on Internet
+	Depends on the Internet
 	Security Risks(Data is stored outside your control)
-	Latency Issues(Can be slower than local neworking)
-
+	Latency Issues(Can be slower than local networking)
 ______________ ______________ ______________ ______________ ______________
 --------------------------------------------------------------------------
 #Networks Defined by Topology
@@ -101,7 +93,7 @@ W = N * (N - 1)/2, where W = the number of WAN links and N = the number of sites
 
 Pros:
 	High redundancy(if one link fails, data can take another route)
-	No single point of failure(ensures network reliabilty)
+	No single point of failure(ensures network reliability)
 	Fast data transfer(direct communication between devices)
 Cons:
 	High cost(requires more cables and hardware, making it expensive)
@@ -109,7 +101,7 @@ Cons:
 - - -
 Partial-Mesh Topology
 
-Network setup where some devices are directly connected to each other, but not all devices are interconnected.It's a compromise between full-mush and other simpler topologies.
+Network setup where some devices are directly connected to each other, but not all devices are interconnected.It's a compromise between full-mesh and other simpler topologies.
 
 Pros:
 	Less expensive than full-mesh(Fewer cables and devices required)
@@ -118,12 +110,11 @@ Pros:
 Cons:
 	Some points of failure(Not all devices have backup connections)
 	Not as reliable as full-mesh(if a critical goes down, it may disrupt communications)
-
 ______________ ______________ ______________ ______________ ______________
 --------------------------------------------------------------------------
 #Three-Tier Hierarchical Model
 
-The model helps seperate the logical functions of the network and ensures that hardware and software are targeted correctly.It divides the network into three main layers: Access Layer, Distribution Layer, and Core Layer.Each layer has specific roles, and each is designed to meet different needs, improving network performance and manageability.
+The model helps separate the logical functions of the network and ensures that hardware and software are targeted correctly.It divides the network into three main layers: Access Layer, Distribution Layer, and Core Layer.Each layer has specific roles, and each is designed to meet different needs, improving network performance and manageability.
 - - -
 1.Access Layer(Edge Layer)
 
@@ -162,7 +153,7 @@ NO direct connection between leaf switches - All traffic goes through the spine 
 Each leaf switch connects to every spine switch - Ensures equal latency and load balancing.
 
 			   *Scalablity (easily expand by adding more leaf/spine switches)
-Advantages  -  *Low Latency (Equal hop count between any two edpoints)
+Advantages  -  	   *Low Latency (Equal hop count between any two endpoints)
 			   *High Redundancy (Multiple paths prevent single points of failure)
 			   *Better Load Balancing (Traffic spreads across all spine switches)
 -----

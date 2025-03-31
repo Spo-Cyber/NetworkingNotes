@@ -1,6 +1,6 @@
 					#Transmission Media and Transceivers
 ______________ ______________ ______________ ______________ ______________
---------------------------------------------------------------------------
+---------------------------------------------------------------------------
 	#Wireless
 
 ISM(Industrial,Scientific,Medical) Frequency Bands
@@ -9,7 +9,6 @@ So the total available bandwidth in the range of 2.4GHz is 83.5MHz in which can 
 
 - - Note - -
 The latest wireless standard, 802.11ax(WiFi 6), takes WiFi operation to the 6GHz frequency.WiFi 6 uses up to 14 additional 80MHz channels or 7 additional super-wide 160MHz channels in the 6GHz band.This new technology is ideal for applications such as high-definition video streaming and virtual reality.
-
 
 Within each band(e.g. 2.4GHz,5GHz) are specific frequencies(or channels) at which wireless devices operate.WiFi channels should be selected carefully to minimize interference.Wireless survey tools help analyze channel usage in the environment.WiFi signals can spill into nearby channels, causing interference even if different channels are selected."Heat maps" provide a visual representation of wireless signal strength."Site surveys" are essential for ensuring good WiFi Coverage and avoiding dead zones.
 
@@ -21,34 +20,28 @@ WiFi routers support multiple channels, but devices share available bandwidth.
 Devices don't always get separate channels; they share bandwidth as needed.
 
 Non-overlapping channels are a set of wireless frequency channels that do not interfere with each other.For example, in the 2.4GHz band, channels (1,6,11) are non overlapping channels for WiFi networks.Even though some countries use channel 14 as a non-overlapping channel, but it is not supported in the United States.
-
 - - - - - - - - - - - - -
 #Transmission Methods
 
 Each channel has a central frequency, but it spreads across multiple frequencies.A channel does not use a single frequency but a range of closely spaced frequencies.The frequencies are close together, keeping the signal within a small range.This is a transmission method called "Spread Spectrum".
 
-
 The four variations of spread-spectrum technology:
-
 1.DSSS(Direct-sequence spread spectrum) - spreads data across a wide frequency range using small units called 'chips'.Chips are shorter than bits and transmit faster than actual data.DSSS adds random-looking data, making it hard to intercept without knowing the pattern.
-
 2.FHSS(Frequency-hopping spread spectrum) - allows the participants in a communication to hop between predetermined frequencies.Security is enhanced because the participants can predict the next frequency to be used but a third party cannot easily predict the next frequency.
 Example` you and your friend change radio channels every second according to a secret list.At 0s you talk on 6MHz, at 1s you switch to 14Mhz, at 2s you switch to 3MHz ... and so on.
-
 3.OFDM(Orthogonal frequency-division multiplexing) - Instead of sending all data on a single frequency, OFDM splits data into 52 smaller parts.Each part is sent over a different frequency at the same time, but with slower speed for each part.The slower speeds for each part(subcarriers) help the system manage signal quality and reliability, which ultimately ensures that data is transmitted more clearly.
-
 4.OFDMA(Orthogonal Frequency-Division Multiple Access) - OFDMA divides the available frequency into smaller parts to share it among multiple devices at once.
 
 - - - - - - - - - - - - -
 #WLAN Standards(802.11)
 
-Most modern WLAN standard are variations of the original IEEE 802.11 standard, which was developed in 1997.
+Most modern WLAN standards are variations of the original IEEE 802.11 standard, which was developed in 1997.
 
 802.11a = The 802.11a WLAN standard, which was ratified in 1999, supported speeds as high as 54Mbps.Other supported data rates (which could be used if conditions were not suitable for the 54Mbps rate) included 6Mbps, 9Mbps, 12Mbps, 18Mbps, 24Mbps, 36Mbps, and 48Mbps. The 802.11a standard used the 5GHz band and used the OFDM transmission method.
 
 802.11b = The 802.11b WLAN standard, which was ratified in 1999, supported speeds as high as 11Mbps. However, 5.5Mbps was another supported data rate. The 802.11b standard used the 2.4GHz band and used the DSSS transmission method.
 
-802.11g = The 802.11g WLAN standard, which was ratified in 2003, supported speeds as high as 54Mbps. Like 802.11a, 802.11g also supported data rates of 6Mbps, 9Mbps, 12Mbps, 18Mbps, 24Mbps, 36Mbps, and 48Mbps.802.11g used either the OFDM or the DSSS transmission method.
+802.11g = The 802.11g WLAN standard, which was ratified in 2003, supported speeds as high as 54Mbps. Like 802.11a, the 802.11g also supported data rates of 6Mbps, 9Mbps, 12Mbps, 18Mbps, 24Mbps, 36Mbps, and 48Mbps.802.11g used either the OFDM or the DSSS transmission method.
 
 802.11n(WiFi 4) = The 802.11n WLAN standard, which was ratified in 2009, supports a wide variety of speeds, depending on its implementation.Although the speed of an 802.11n network could exceed 300Mbps (through the use of *channel bonding).An 802.11n WLAN can operate in the 2.4GHz band, the 5GHz band, or both simultaneously. 802.11n uses the OFDM transmission method.One way 802.11n is better compared to earlier WiFi standards is by using a technology called **multiple input, multiple output (MIMO).
 
@@ -71,15 +64,14 @@ A wireless technology , which is used on cell phones.Some cellular phone technol
 Other technologies for cellular phone include the older 2G(Edge), which offers slow data rates.2G was improved upon with 3G, in addition to the newer 4G,5G,LTE, and Evolved High-Speed Packet Access(HSPA+)
 
 Tethering allows a smartphone's data connection to be used by another device, such as a laptop.Also, mobile hotspots are growing in popularity because these devices connect to a cell phone company's data network and make that data network available to nearby devices(typically, a maximum of 5 devices) via wireless networking technologies.
-
 - - - - - - - - - - - - -
 Satellite
 
 1)Data request getting sent from user's dish antenna to a satellite.
 2)Satellite relays the signal to a ground station NOS(Network Operations Center)
-3)NOS connect to the Internet and sends data back via the same path.
+3)NOS connects to the Internet and sends data back via the same path.
 
-Cons: High latency (~500)(especially in geostationary satellites), Weather Sensitive,Expensive compared to fiber or mobile networks.
+Cons: High latency (~500ms)(especially in geostationary satellites), Weather Sensitive,Expensive compared to fiber or mobile networks.
 ______________ ______________ ______________ ______________ ______________
 --------------------------------------------------------------------------
 	#Copper and Fiber Media and Connectors
@@ -106,7 +98,6 @@ RG-58 = Has loss characteristics and distance limitations like those of RG-59. H
 Common connectors used on a coaxial cables:
 BNC: A Bayonet Neill-Concelman (BNC) connector (British Naval Connector in some literature) can be used for a variety of applications, including as a connector in a 10BASE2 Ethernet network. A BNC coupler could be used to connect two coaxial cables together back-to-back.
 F-connector: F-type connectors are used with coaxial cable, most commonly to connect cable modems and TVs. F-type connectors are screw-type connectors.
-
 - - - - - - - - - - - - -
 #Twisted Pair Cable
 
@@ -115,7 +106,7 @@ A UTP coupler could be used to connect two UTP cables, back-to-back.
 
 - -
 STP(Shielded Twisted Pair): If wires in a cable are not twisted or shielded, the cable can act as an antenna, which might receive or transmit EMI. To help prevent this type of behavior, the wires can be twisted together in pairs.
-One option for supporting higher frequencies is to surround a twisted pair in a metallic shielding, similar to the outer conductor in a coaxial cable. This type of cable is referred to as a shielded twisted-pair (STP) cable.More expensive that UTP.The colors are green/white,orange/white,brown/white,blue/white.
+One option for supporting higher frequencies is to surround a twisted pair in a metallic shielding, similar to the outer conductor in a coaxial cable. This type of cable is referred to as a shielded twisted-pair (STP) cable.More expensive than UTP.The colors are green/white,orange/white,brown/white,blue/white.
 
 - -
 UTP(Unshielded Twisted Pair): Another way to block EMI from the copper strands making up a twisted-pair cable is to twist the strands more tightly (that is, more twists per centimeter). With the strands wrapped tightly around each other, the wires insulate each other from EMI.The colors are blue/bluewhite,brown/brownwhite,orange/orangewhite,green/greanwhite.
@@ -161,7 +152,7 @@ Category 7:
 Category 8:
 	Cat 8 is capable of 40Gbps speeds. As you might guess, however, this speed comes at a cost. Cat 8 supports distances of only 30 to 36 m, depending on the patch cables used. These short distances and very high speeds are ideal for connections in a data center between high-speed multilayer switches.
 
-Most UTP cabling used in today’s networks is considered to be straight-through, meaning that the RJ45 jacks at each end of a cable have matching pinouts.However, some network devices cannot be interconnected with a straight-through cable. For example, consider two PCs interconnected with a straight-through cable. Because the network interface cards (NICs) in these PCs use the same pair of wires for transmission and reception, when one PC sends data to the other PC, the receiving PC would receive the data on its transmission wires rather than its reception wires. For such a scenario, you can use a crossover cable, which swaps the transmit and receive wire pairs between the two ends of a cable.
+Most UTP cabling used in today’s networks is considered to be straight-through, meaning that the RJ45 jacks at each end of a cable have matching pinouts.However, some network devices cannot be interconnected with a straight-through cable. For example, consider two PCs interconnected with a straight-through cable. Because the network interface cards (NICs) in these PCs use the same pair of wires for transmission and reception, when one PC sends data to the other PC, the receiving PC would receive the data on its transmission wires rather than its reception wires. For such a scenario, you can use a crossover cable, which swaps the transmit and receives wire pairs between the two ends of a cable.
 
 - -
 Twisted-Pair Connectors:
@@ -177,8 +168,6 @@ Plenum vs Non-plenum Cable
 If a twisted-pair cable is to be installed under raised flooring or in an open-air return, fire codes must be considered. For example, imagine that there was a fire in a building. If the outer insulation of a twisted-pair cable caught on fire or started to melt, it could release toxic fumes. If those toxic fumes were released in a location such as an open-air return, those fumes could be spread throughout a building, posing a huge health risk.
 
 To mitigate the concern of pumping poisonous gas throughout a building’s HVAC system, plenum cable can be used.
-
-
 - - - - - - - - - - - - -
 #Fiber-Optic Cable
 
@@ -187,7 +176,6 @@ An alternative to copper cabling is fiber-optic cabling, which sends light (inst
 Fiber-optic cables are generally classified according to their diameter and fall into one of two categories: multimode fiber (MMF) and single-mode fiber (SMF).The wavelengths of light also vary between MMF and SMF cables.
 Usually, wavelengths of light in an MMF cable are in the range 850–1300 nm, where nm stands for nanometers.(A nanometer is one-billionth of a meter.).
 The wavelengths of light in an SMF cable are usually in the range 1310–1550 nm. A fiber coupler could be used to connect two fiber cables, back-to-back.
-
 - -
 Multimode Fiber(MMF):
 
@@ -195,12 +183,10 @@ Fiber-optic cables use two different types of glass.There is an inner strand of 
 The path that light takes through a fiber-optic cable is called a mode of propagation. The diameter of the core in a multimode fiber is large enough to permit light to enter the core at different angles.
 
 For example, say that the pulse of light representing the first bit intersects the core at a steep angle and bounces back and forth many times on its way to the far end of the cable, while the light pulse representing the second bit intersects the core perpendicularly and does not bounce back and forth very much. With all of its bouncing, the first bit has to travel further than the second bit, and so the bits might arrive out of order. This condition is known as multimode delay distortion. To mitigate multimode delay distortion, multimode fiber (MMF) is typically limited to shorter distances than SMF.
-
 - -
 Single-Mode Fiber:
 
 Single-mode fiber (SMF) eliminates the issue of multimode delay distortion by having a core with a diameter so small that it permits only one mode (that is, one path) of propagation.With the issue of multimode delay distortion mitigated, SMF typically can be run for longer distances than MMF.More expensive that MMF.
-
 - -
 Fiber-Optic Cable Connectors
 
@@ -224,7 +210,7 @@ Ethernet and Fiber Standards(802.3)
 
 10BASE2: 10BASE2’s actual distance and speed limitation was 185 m and 10Mbps. The cabling used in 10BASE2 networks was significantly thinner and therefore less expensive than 10BASE5 cabling.
 
-10Base-T: 10Mbps version of Ethaernet that relies on UTP cabling."T" refers to twisted-pair cabling.
+10Base-T: 10Mbps version of Ethernet that relies on UTP cabling."T" refers to twisted-pair cabling.
 
 --
 * Baseband - uses the entire bandwidth of the medium for a single signal at a time.
@@ -241,7 +227,6 @@ The bandwidth of a network is measured in terms of how many bits the network can
 = = = = = =
 
 Common bandwidths supported on distinct types of Ethernet networks:
-
 --------
 Standard Ethernet = 10Mbps: 10 million bits per second (that is, 10 megabits per second).
 Fast Ethernet = 100Mbps: 100 million bits per second (that is, 100 megabits per second).
@@ -274,7 +259,6 @@ QSFP+(Enhanced quad small form-factor pluggable): The enhanced version of QSFP, 
 #Multiplexing in Fiber-Optic Networks
 
 Multiplexing allows multiple communications sessions to share the same physical medium.
-
 1)Dense wavelength-division multiplexing (DWDM): DWDM uses as many as 32 light wavelengths on a single fiber, where each wavelength can support as many as 160 simultaneous transmissions using more than eight active wavelengths per fiber.
 2)Coarse wavelength-division multiplexing (CWDM): CWDM uses fewer than eight active wavelengths per fiber.
 3)Bidirectional wavelength-division multiplexing (WDM): This approach multiplexes a number of optical carrier signals onto a single optical fiber by using different wavelengths. Using this technique enables bidirectional communications over one strand of fiber and increases the overall capacity.

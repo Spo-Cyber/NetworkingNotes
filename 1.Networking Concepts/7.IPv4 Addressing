@@ -30,7 +30,6 @@ Class E:
 	Private Rarge: -
 
 Scope: Devices using private IPs can communicate within the same local network and may access the internet through NAT(Network Address Translation).
-
 - - -
 APIPA (Automatic Private IP Addressing)
 
