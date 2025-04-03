@@ -1,0 +1,136 @@
+		#Evolving Use Cases
+		
+SDN(Software-Defined Networking)
+
+SDN is changing the landscape of traditional networks. A well-implemented software-defined network allows the administrator to implement features, functions, and configurations without the need to do command-line configuration on the individual network devices. The front end that the administrator interfaces with can alert the administrator to what the network is currently doing, and then, through that same graphical user interface, the administrator can indicate what he or she wants done; behind the scenes, the software-defined network implements the detailed configurations across multiple network devices.
+A key component in most software-defined networking solutions is an SDN controller. This appliance-based device is responsible for distributing control plane instructions to network devices downstream for configuration and management.
+
+The best strategy for SDN is to separate the network into different discrete planes or layers of operation:
+Application plane: In Software-Defined Networking (SDN), the Application Plane is the top layer that consists of applications and services that communicate their network requirements and desired behavior to the SDN controller.The Application Plane essentially defines what the network should do, while the Control Plane (SDN Controller) translates those requirements into specific instructions for the Data Plane (network devices).
+-
+Control plane: The controller turns the API commands into calls to the network devices in order to monitor or configure them properly. The API calls from you to the controller are referred to as northbound operations, and the commands from the controller to the network devices are referred to as southbound operations. The controller is always considered to be in the middle. Examples of control layer functions include routing and switching intelligence, and common control layer protocols include Open Shortest Path First (OSPF), Border Gateway Protocol (BGP), and Rapid Spanning Tree Protocol (RSTP).
+-
+Data plane: The data plane (sometimes called the infrastructure plane) contains the hardware and software that power the enterprise. In it, you often find legacy and dated technologies. 
+-
+Management Plane: The management plane allows administrators to see their devices and traffic flows and react as needed to manage data plane behavior. This can be done automatically through configuration apps that can, for example, add more bandwidth if it looks as if edge components are getting congested. 
+
+- - - - - -
+SD-WAN(Software-Defined Wide Area Network)
+-
+One of the key features of SD-WAN is its application awareness. This capability allows the network to identify and prioritize traffic based on the application, ensuring that critical applications, such as video conferencing and VoIP, receive the necessary bandwidth and low latency for optimal performance.
+-
+Zero-touch provisioning (ZTP) is another significant feature of SD-WAN, simplifying the deployment and management of network devices. With ZTP, network administrators can configure and deploy new branch devices without manual intervention. This process typically involves shipping a preconfigured device to a location, where it automatically connects to the SD-WAN controller, downloads its configuration, and becomes operational with minimal human involvement.
+-
+SD-WAN is designed to be transport agnostic, meaning it can leverage any available connectivity option, such as broadband, MPLS, LTE, or even satellite links.Transport agnosticism enhances the resilience and redundancy of the network, as SD-WAN can dynamically route traffic across multiple links to maintain performance and availability, even in the event of a link failure or degradation.
+-
+Central policy management is a cornerstone of SD-WAN architecture, providing a unified platform for defining and enforcing network policies across all connected devices and locations. Through a centralized management console, administrators can easily set rules for traffic prioritization, security, and compliance, ensuring consistent policy application throughout the network. This centralized approach simplifies network management, improves security by standardizing configurations, and enables quick adjustments to network policies in response to changing business needs or threats. Central policy management also allows for real-time monitoring and analytics, providing valuable insights into network performance and usage.
+- - - - - -
+VXLAN (Virtual Extensible Local Area Network)
+
+Virtual Extensible Local Area Network (VXLAN) is a network virtualization technology designed to address the limitations of traditional VLANs in large-scale data center environments and the cloud. It operates by encapsulating Layer 2 Ethernet frames within Layer 3 UDP packets, enabling the extension of Layer 2 networks over a Layer 3 infrastructure. This encapsulation allows for the creation of large-scale, logical Layer 2 networks across geographically dispersed data centers, which facilitates the movement of virtual machines (VMs) and workloads without reconfiguring the underlying physical network.
+The key mechanism that makes VXLAN powerful is its ability to perform Layer 2 encapsulation. In VXLAN, a Layer 2 Ethernet frame from a VM or host is encapsulated into a Layer 3 UDP packet. This packet includes an outer IP header, which can route across a Layer 3 network, and an outer UDP header, which facilitates the tunneling mechanism. The encapsulated packet is then transmitted over the existing Layer 3 infrastructure. This process allows for Layer 2 segments to be extended across different Layer 3 networks, creating a seamless and scalable virtual network that behaves as if all connected hosts are on the same local network.
+One of the primary applications of VXLAN is in data center interconnect (DCI). DCI involves connecting multiple data centers to provide a unified infrastructure, allowing for efficient resource sharing, workload mobility, and disaster recovery.
+- - - - - -
+ZTA (Zero Trust Architecture)
+
+Zero trust architecture (ZTA) is a security model centered on the principle that no entity, whether inside or outside the network, should be trusted by default. Instead, verification is required from everyone trying to access resources within the network, ensuring robust and granular security. Unlike traditional security models that rely on a trusted internal network and a less trusted external network, ZTA treats all network traffic as untrusted, continuously validating users and devices before granting access to sensitive data and systems. This model significantly mitigates the risk of cyber threats by ensuring that access is granted only to those who genuinely need it and are properly authenticated.
+-
+Central to the ZTA model is the concept of least privilege access. This principle dictates that users and devices should be granted the minimum level of access required to perform their functions and no more. By limiting access rights, ZTA minimizes the potential damage that could be caused by compromised credentials or malicious actors. Implementing least privilege access involves meticulously defining user roles, responsibilities, and the associated access permissions. For instance, a financial analyst may need access to financial records but not to customer personal information, while an IT administrator might need access to system logs but not to employee payroll data. 
+- - - - - -
+SASE (Secure Access Service Edge)
+
+A cloud-native architecture that integrates networking and security functions into a single, unified service model to provide secure and efficient access to applications and data from any location.It is like a big toolbox that combines networking tools and security tools into one single service.
+SD-WAN: Helps make your network faster and smarter. Think of it as improving the roads data travels on.
+CASB: Protects cloud applications like Google Drive or Microsoft 365. It watches what data goes in and out.
+ZTNA (Zero Trust Network Access): Only lets people or devices access resources if they are verified. No trust by default.
+FWaaS (Firewall-as-a-Service): A firewall that lives in the cloud instead of on physical devices. Filters and blocks bad traffic.
+SWG (Secure Web Gateway): Checks internet traffic for threats like viruses or phishing.
+- -
+SSE (Security Service Edge)
+
+SSE is a smaller toolbox focused only on security (No network management like SD-WAN). It’s all about protecting cloud resources and making access safe.
+CASB: Protects your cloud apps and keeps track of data movement.
+ZTNA: Makes sure only verified users or devices can access resources.
+SWG: Blocks dangerous websites, malware, and phishing.
+- - - - - -
+IaC (Infrastructure as Code)
+
+Infrastructure as Code (IaC) is a way of managing and setting up your computer infrastructure (like servers, networks, storage, etc.) using code instead of doing it manually. This is mostly used with cloud environments where everything is virtual and can be created or deleted quickly.
+Here's why it's useful:
+    Instead of manually setting up servers, you can write a script to do it for you.
+    If you need to test something with 50 servers, you can set them up with a few clicks instead of buying and configuring a bunch of physical machines.
+    You can also easily destroy those servers when you’re done, saving money and resources.
+
+Big cloud providers like AWS, Azure, and Google Cloud make IaC easy with tools like AWS CloudFormation. These tools help you write the code needed to set up and manage complex systems automatically.
+Automation: Doing a single task automatically (like creating one server).
+Orchestration: Managing lots of automated tasks together, like setting up servers, networks, databases, and making sure they all work well together. Think of it as automating the automation.
+
+Key components of automation in IaC include playbooks, templates, and reusable tasks, which facilitate the creation, maintenance, and scaling of infrastructure in a consistent manner.
+
+Playbooks: Playbooks are a fundamental tool in IaC automation, particularly in tools like Ansible. They provide a structured way to define a series of tasks that automate the provisioning, configuration, and management of infrastructure. Playbooks are written in YAML files and describe the desired state of the infrastructure in a declarative manner. This allows for complex workflows to be automated, such as deploying applications, configuring servers, and managing network devices.
+-
+Templates: Templates are reusable files that define cloud resources and their configurations.It maintains consistency across different environments by using variables for flexibility.For example, a template might define a virtual machine with specific attributes like instance type, security groups, and attached storage.Avoids manual errors and ensures consistent setups.
+-
+Reusable tasks are a key aspect of IaC automation that promote efficiency and maintainability. In tools like Ansible, reusable tasks can be defined in roles, which are collections of tasks, variables, and templates organized in a structured format. Roles can be shared across multiple playbooks and projects, allowing for the reuse of common configurations and deployment steps. For example, a role might encapsulate the tasks required to set up a web server, including installing packages, configuring services, and managing firewall rules.
+-
+Configuration drift: Configuration drift occurs when the actual state of the infrastructure deviates from the desired state defined in the IaC. This can happen due to manual changes, system updates, or environmental factors. Automation in IaC helps mitigate configuration drift by regularly applying the desired state to the infrastructure. Tools like Terraform and Ansible can perform periodic checks and reapply configurations to ensure consistency. This not only helps maintain the reliability and predictability of the infrastructure but also reduces the time and effort required to troubleshoot and resolve issues caused by drift. Automation ensures that the infrastructure remains aligned with the defined state, minimizing the risks associated with unintended changes.
+-
+Compliance: Compliance with industry standards and regulatory requirements is a critical aspect of infrastructure management. Automation in IaC enables organizations to enforce compliance by embedding policies and controls directly into the infrastructure code. For example, security configurations, access controls, and data protection measures can be defined in the IaC templates and playbooks. Automated tools can continuously monitor the infrastructure for compliance with these policies, generating reports and alerts when deviations occur.
+-
+Upgrades: Upgrading infrastructure components, such as software versions, operating systems, and hardware configurations, can be a complex and error-prone process. IaC automation simplifies upgrades by allowing organizations to define the desired state of the infrastructure, including the required versions and configurations. Upgrades can be tested in a staging environment using the same IaC definitions before being applied to production, reducing the risk of disruptions.
+-
+Dynamic inventories: Dynamic inventories are a feature of IaC automation that allows the infrastructure to be dynamically discovered and managed based on current configurations and states. This is particularly useful in cloud environments, where resources can be created and terminated frequently. Tools like Ansible support dynamic inventories, which can query cloud providers or other data sources to generate an up-to-date list of resources for configuration management tasks.
+-
+Because the C in IaC stands for code, it is of no surprise that IaC systems tend to take advantage of source control systems. These systems tend to feature the following:
+
+    Version control: Version control is at the heart of source control systems and is vital for managing IaC. It enables teams to track changes to infrastructure code over time, maintaining a history of modifications, additions, and deletions. Each change is recorded with a unique identifier, often called a commit, along with metadata such as the author, timestamp, and a message describing the change.
+    Central repository: A central repository in a source control system acts as the single source of truth for all infrastructure code. This repository stores the master copies of the code and provides a central location where all team members can access, contribute to, and collaborate on the infrastructure codebase.
+    Conflict identification: Conflict identification is an essential feature of source control systems, especially in collaborative IaC environments, where multiple team members may work on the same code simultaneously. Conflicts occur when changes made by different users overlap or are incompatible with each other.
+    Branching: Branching is a powerful feature of source control systems that allows teams to create isolated copies of the codebase for different purposes. This is particularly useful in IaC environments for managing multiple streams of development and experimentation without affecting the main codebase.
+__________________________________________________________
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+		#IP Version 6
+		
+IPv4 addresses are running out, so IPv6 was created to provide more addresses. It offers around 5 × 10²⁸ addresses per person on Earth.It also has some improvements over IPv4.
+IPv6 headers are simpler than IPv4 headers. IPv6 uses only 5 fields, while IPv4 uses 12. IPv6 doesn't use broadcasts, which makes networks more efficient. It also doesn’t fragment packets. Instead, it checks the maximum transmission unit (MTU) for each session to avoid fragmentation.
+IPv6 and IPv4 can work together during the transition period. Devices can use both IPv4 and IPv6 at the same time (dual stack). IPv6 traffic can also be sent over IPv4 networks using tunneling methods like 6to4 or 4to6.
+Teredo tunneling allows IPv6 connections even when the device is connected to an IPv4-only network. Miredo is a Linux client that supports Teredo.
+NAT is not as necessary in IPv6 because there are so many addresses available. But it can be useful for transitioning between IPv4 and IPv6 networks.
+NAT64 is a technology that helps IPv6-only clients communicate with IPv4-only servers. It translates IPv6 packets to IPv4 packets and the other way around. This is done using a special prefix to create an IPv6 address that maps to an IPv4 address.
+NAT64 is helpful because it allows IPv6 networks to access IPv4 resources without needing both protocols to be supported by all devices. It’s an important tool for transitioning from IPv4 to IPv6.
+
+An IPv6 address has the following address format, where X is a hexadecimal digit in the range of 0 to F:
+XXXX:XXXX:XXXX:XXXX:XXXX:XXXX:XXXX:XXXX
+A hexadecimal digit is 4 bits in size (4 binary bits can represent 16 values). Notice that an IPv6 address has eight fields, and each field contains four hexadecimal digits. The following formula reveals why an IPv6 address is a 128-bit address:
+4 bits per digit × 4 digits per field × 8 fields = 128 bits in an IPv6 address.
+
+Leading 0s in a field can be omitted.
+Contiguous fields containing all 0s can be represented with a double colon. (Note that this can be done only once for a single IPv6 address.)
+For example, consider the following IPv6 address:
+ABCD:0123:4040:0000:0000:0000:000A:000B
+Using the rules for abbreviation, the IPv6 address can be rewritten as follows:
+ABCD:123:4040::A:B
+
+IPv6 globally routable unicast addresses start with the first four hex characters in the range 2000 to 3999.
+An IPv6 link-local address is also used on each IPv6 interface. The link-local address begins with FE80.
+Multicast addresses begin with FF as the first two hex characters.
+IPv6 can automatically configure itself on a network without needing DHCP. It does this by using Stateless Address Autoconfiguration (SLAAC).
+SLAAC allows a device to discover the network it's connected to and create a unique address for itself. This unique address is generated using a process called EUI-64, which takes the device’s 48-bit MAC address and turns it into a 64-bit host ID.
+Since devices can configure their own addresses, DHCP is not required for basic connectivity in IPv6 networks.
+The protocol that is used for network discovery—that is, to discover the network address and learn the Layer 2 addresses of neighbors on the same network—is Neighbor Discovery Protocol (NDP).
+
+NDP is hugely important in IPv6. It defines five ICMPv6 packet types for important jobs:
+Router Solicitation: Devices (like your computer) send these messages to ask if there are any routers on the network. Basically, it’s saying, “Hey, are there any routers here?”.
+Router Advertisement: Routers reply to RS messages or send these messages on their own. They announce their presence, network settings, and other information devices need to configure themselves. Think of it as routers saying, “I’m here, and here’s the network info you need.”
+Neighbor Solicitation: Devices use these messages to find out the MAC address of another device or to check if a device is still reachable. It’s like saying, “Hey, what’s your MAC address?” or “Are you still there?”.
+Neighbor Advertisement: Devices respond to NS messages with these messages. It’s like saying, “Here’s my MAC address,” or “Yes, I’m still here.”.
+Redirect: Routers use these messages to tell devices there’s a better or more efficient route to reach a destination. It’s like saying, “Hey, you should use that router instead of me for that address.”.
+- - -
+#IPv6 Data Flows
+
+Ipv6 uses just three of the four types of data flows: Unicast, Multicast and Anycast.Just like in IPv4, IPv6 uses special address types for these data flows.
+Unicast = one-to-one communication
+Multicast = one-to-many communication
+Anycast = one-to-nearest communication
+NO Broadcast = *IPv6 replaces broadcast behavior with multicast, thanks to the “all nodes” multicast group. This reserved address is FF01:0:0:0:0:0:0:1 (FF01::1). All IPv6 nodes join this group. This is a simple and efficient method for sending traffic to all nodes.
+- - - - - - - - - - - - - - - - -
