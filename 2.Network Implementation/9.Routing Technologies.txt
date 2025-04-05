@@ -1,51 +1,38 @@
 		#Routing Technologies (Chapter 9)
 
 ARP(Address Resolution Protocol) - is a broadcast protocol and, therefore, does not travel out of the sender's local subnet.
-
-
 IP routing table: When a router needs to route an IP packet, it consulted its IP routing table to find the best match.The best match is the route that has the longest prefix(greatest number of bits in the subnet mask are set to 1).
-
 Static Routing - A method of manually configuring a network route by specifying fixed paths for data packets to travel within a network.
-
 Dynamic Routing - The process of distributing network prefix information through a network so that traffic can be forwarded to network destinations.
 - - - - -
 #Routing Protocol Characteristics
 
-RIP(Routing Information Protocol) - Decides for router to send data packet by the shortest path, without counting bandwidths of other routes.
-
+RIP(Routing Information Protocol) - Decides for router to send data packet by the shortest path(hop count), without counting bandwidths of other routes.
 OSPF(Open Shortest Path First) - Can consider available bandwidth when making their routing decisions.
-
 Convergence - The process of failing over from one route to a backup route.
 - - - - -
 #Believability of a Route
 
-Administrative Distance(AD) - A routing protocol's index of believability.Routing protocols with a smaller AD are considered more believable than routing with a higher AD.
+Administrative Distance(AD) - A routing protocol's index of believability.Routing protocols with a smaller AD are considered to be more believable than routing with a higher AD.
 
-Routing Information Source		AD Value
-Directly connected network		0
-Statically configured network	1
-EIGRP							90
-OSPF							110
-RIP								120
-External EIGRP					170
-Unknown or unbelievable			255("unreachable")
+Routing Information Source     AD Value
+Directly connected network      0
+Statically configured network   1
+EIGRP				          90
+OSPF					110
+RIP					120
+External EIGRP			170
+Unknown or unbelievable	255("unreachable")
 
-Metric - a numerical value assigned to a route by a routing protocol to determine the best path within that protocol.(such as for RIP it the metric is Hop count, for OSPF it is the available bandwidth...)
-
+Metric - a numerical value assigned to a route by a routing protocol to determine the best path within that protocol.(such as for RIP the metric is Hop count, for OSPF it is the available bandwidth...)
 Route Selection (the process of determining the optimal path for data packets to travel from a source to a destination within a network) - works by using the longest matching prefix length, the lowest administrative distance value, and the most preferred metric.
 
 Routing protocols are classified into two main categories based on where they operate within a network:
-
 1.IGP(Interior Gateway Protocols) - Used for routing inside a single organization or autonomous system(AS).
 2.EGP(Exterior Gateway Protocols) - Used for routing between different organizations or autonomous systems(AS-to-AS communication).
-
 - - - - - -
-#Distance Vector Routing Protocol - is a method to find the best path based on distance(metric) and direction(vector).Each router maintains a routing table with destination, next hop, and cost.Periodically broadcasts entire routing table to neighbors.
+#Distance Vector Routing Protocol - is a method to find the best path based on metric(distance) and direction(vector).Each router maintains a routing table with destination, next hop, and cost.Periodically broadcasts entire routing table to neighbors.
 
-Protocols:
-	RIP(hop count, max 15 hops,updates every 30 seconds)
-	IGRP(bandwidth, delay, reliability, load as metrics)
-	EIGRP(hybrid protocol, uses DUAL(Diffusing Update Algorithm) algorithm)
 Loop Prevention Methods:
 	1.Split Horizon - Prevents advertising a route back to the source it was learned from.
 	2.Route Poisoning - Marks failed routes as unreachable(e.g. 16 hops in RIP).
@@ -56,13 +43,12 @@ Each router builds a topological map of the network instead of relying on neighb
 - - - - - -
 #Routing Protocol Examples:
 
-OSPF(Open Shortest Path First) - is a link-state routing protocol that uses the metric cost, which is based on the link speed between two routers.OSPF is a popular IGP because of its scalability, fast convergence.METRIC - based on bandwidth.
+*OSPF(Open Shortest Path First) - is a link-state routing protocol that uses the metric cost, which is based on the link speed between two routers.OSPF is a popular IGP because of its scalability, fast convergence.METRIC is based on BANDWIDTH.
+*IS-IS(Intermediate System-to-Intermediate System) - is a link-state routing protocol and is similar to OSPF in operation.It uses configurable, yet dimensionless(not tied to a specific network layer or addressing scheme"ipv4/ipv6...""), metric associated with an interface and runs Dijkstra's shortest path first algorithm.
+*EIGRP(Enhanced Interior Gateway Routing Protocol) - is a Cisco-proprietary protocol that is popular in Cisco-only networks but less popular in mixed-vendor environments.Like OSPF, it is an IGP that offers fast convergence and scalability.EIGRP is more challenging to classify as a distance-vector or a link-state routing protocol.METRIC - bandwidth and delay by default.
+*BGP(Border Gateway Protocol) - is the only EGP in widespread use today.In fact, BGP is considered to be the routing protocol that runs the Internet, which is an interconnection of multiple autonomous systems.
 
-IS-IS(Intermediate System-to-Intermediate System) - is a link-state routing protocol and is similar to OSPF in operation.It uses configurable, yet dimensionless(not tied to a specific network layer or addressing scheme"ipv4/ipv6...""), metric associated with an interface and runs Dijkstra's shortest path first algorithm.
-
-EIGRP(Enhanced Interior Gateway Routing Protocol) - is a Cisco-proprietary protocol that is popular in Cisco-only networks but less popular in mixed-vendor environments.Like OSPF, it is an IGP that offers fast convergence and scalability.EIGRP is more challenging to classify as a distance-vector or a link-state routing protocol.METRIC - bandwidth and delay by default.
-
-BGP(Border Gateway Protocol) - is the only EGP in widespread use today.In fact, BGP is considered to be the routing protocol that runs the Internet, which is an interconnection of multiple autonomous systems.
+A network can simultaneously support more than one routing protocol through the process of route redistribution. For example, a router could have one of its interfaces participating in an OSPF area of the network and have another interface participating in an EIGRP area of the network. This router could then take routes learned via OSPF and inject those routes into the EIGRP routing process. Similarly, EIGRP-learned routes could be redistributed into the OSPF routing process.
 - - - - - - -
 #Address Translation
 
@@ -77,8 +63,4 @@ HSRP(Hot Standby Router Protocol) - (Cisco Proprietary), uses an active and stan
 VRRP(Virtual Router Redundancy Protocol) - (Open Standard), similar to HSRP but vendor-neutral.Uses a master router and multiple backups.Supports up to 255 virtual routers per network.
 CARP(Common Address Redundancy Protocol) - (Open Source),similarly uses master and backup routers.More flexible than VRRP, allowing better customization.
 GLBP(Gateway Load Balancing Protocol) - (Cisco Proprietary), unlike HSRP/VRRP, it allows load balancing across multiple routers.
-
-- - another method for backup is LACP(Link Aggregation Control Protocol) - enables to assign multiple physical links to a logical interface, which appears as a single link to a route processor.
-______________ ______________ ______________ ______________ ______________
---------------------------------------------------------------------------
-			#Ethernet Switching Technologies (Chapter 10)
+LACP(Link Aggregation Control Protocol) - enables to assign multiple physical links to a logical interface, which appears as a single link to a route processor.
