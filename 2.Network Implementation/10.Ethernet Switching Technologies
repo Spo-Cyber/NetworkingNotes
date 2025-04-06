@@ -1,0 +1,92 @@
+		#Ethernet Switching Technologies
+		
+#Principles of Ethernet
+Ethernet allows all devices to transmit at any time, unlike Token Ring, which uses a token-passing method. Devices check if the wire is clear before transmitting, but if two devices transmit at the same time, a collision occurs, causing data corruption. Therefore, a method was needed to detect and manage collisions — which led to the use of CSMA/CD.
+
+CSMA/CD (carrier-sense multiple access with collision detection):
+Carrier sense: A device attached to an Ethernet network can listen to the wire, prior to transmitting, to make sure a frame is not being transmitted on the network segment.
+Multiple access: Unlike with a deterministic method of network access (for example, the method used by Token Ring), all Ethernet devices simultaneously have access to an Ethernet segment.
+Collision detection: If a collision occurs (perhaps because two devices were simultaneously listening to the network and simultaneously concluded that it was safe to send), Ethernet devices can detect that collision and set random back-off timers. After each device’s random timer expires, the device again tries to transmit its data.
+
+Despite Ethernet’s CSMA/CD feature, Ethernet segments still suffer from scalability limitations. Specifically, the likelihood of collisions increases as the number of devices on a shared Ethernet segment increases.
+An alternate approach is CSMA/CA, where CA refers to collision avoidance. This technology is common in wireless networks and was made famous by Token Ring in early LANs.
+With wired Ethernet, devices on a shared Ethernet segment belong to the same collision domain. One example of a shared Ethernet segment is a 10BASE5 or 10BASE2 network with multiple devices attaching to the same cable. On that cable, only one device can send at any one time. Therefore, all devices attached to the thicknet or thinnet cable are in the same collision domain.
+Similarly, devices connected to a legacy Ethernet hub are in the same collision domain. A hub is a Layer 1 device and does not make forwarding decisions. Instead, a hub takes bits in on one port and sends them out all the other hub ports except the one on which the bits were received.
+Ethernet switches dramatically increase the scalability of Ethernet networks by creating multiple collision domains. In fact, every port on an Ethernet switch is in its own collision domain.
+Ethernet switches have a less obvious but powerful benefit: Because a switch port connects to a single device, there is no chance of collision. With no chance of collision, collision detection is no longer needed, and with collision detection disabled, network devices can run in full-duplex mode rather than half-duplex mode. In full-duplex mode, a device can simultaneously send and receive at the same time.
+When multiple devices are connected to the same shared Ethernet segment, such as a Layer 1 hub, CSMA/CD must be enabled. As a result, the network must work in half-duplex mode, which means that only a single networked device can transmit or receive at any one time. In half-duplex mode, a networked device cannot simultaneously send and receive, so the device makes inefficient use of the network’s bandwidth.
+Another important mechanism in an Ethernet network is flow control. Flow control is a mechanism for temporarily stopping the transmission of data on Ethernet-based networks. The goal of this mechanism is to avoid packet loss in the presence of network congestion.
+
+- - - Ethernet Switch Features - - -
+Beyond basic frame forwarding, many Layer 2 Ethernet switches offer a variety of other features to enhance such things as network performance, redundancy, security, management, flexibility, and scalability.
+
+#VLANs
+In a basic switch configuration, all ports on a switch belong to the same broadcast domain. In such an arrangement, a broadcast received on one port gets forwarded out all other ports.
+Devices that have the same network address belong to the same network, or subnet.
+Say that you decide to place PCs from different departments within your company into their own subnet. One reason you might want to do this is for security purposes. For example, by having the Accounting department in a separate subnet (that is, a separate broadcast domain) from the Sales department, devices in one subnet will not see the broadcasts being sent on the other subnet.
+Another reason that you might want to do this is to make the overall network segment more efficient. Remember that excessive broadcast frames can cause a network to suffer, and there are plenty of operations that rely on broadcasts to function properly. Address Resolution Protocol (ARP) is a great example of such an operation. ARP is a broadcast-based solution that permits a system to discover the MAC address that coordinates to a particular IP address. IPv6 eliminates this challenge altogether with the introduction and use of Neighbor Discovery Protocol (NDP). As you might guess, NDP is not broadcast based. This is fortunate, as broadcasts are not supported in IPv6.
+
+As the administrator of the network, you can easily assign VLANs to interfaces on the switch. In fact, if you need to address all the interfaces on a device that are part of a particular VLAN, you can use a switch virtual interface (SVI). An SVI (Switch Virtual Interface) is a virtual gateway for each VLAN on a switch. It gets an IP address (e.g., 192.168.10.1 for VLAN 10) and allows devices in that VLAN to communicate with other VLANs. The SVI is active only if there are working ports in that VLAN. It acts as the default gateway for devices in the VLAN.
+
+VLANs are very handy with another popular configuration requirement in many modern network environments: You can use a special-purpose VLAN termed a voice VLAN to segment and provide network access for VoIP packets. These packets need access to the data network for transport, and they also need special priority treatment to ensure that the voice call quality always remains excellent. Using a voice VLAN is an ideal segmentation strategy for all these needs.
+
+One challenge with VLAN configuration in large environments is the need to configure identical VLAN information on all switches. Manually performing this configuration is time-consuming and error prone. However, switches from Cisco Systems support VLAN Trunking Protocol (VTP), which allows a VLAN created on one switch to be propagated to other switches in a group of switches (that is, a VTP domain).
+
+- - - Switch Configuring for an Access Port - - -
+
+In this configuration, port security is used to limit the number of MAC addresses the port can learn. In this case, the port can learn only two MAC addresses, which could be for devices like a VoIP phone and the computer connected to it. This is a useful step in securing the network by restricting unauthorized devices from connecting to the port.
+A line with a leading ! is a comment used to document the next line(s) of the configuration.
+_______________________________________Switch Access Port Configuration_____________________________________
+Move into configuration mode for interface gig 0/21
+SW1(config)# interface GigabitEthernet0/21
+
+! Add a text description of what the port is used for
+SW1(config-if)# description Access port in Sales VLAN 21
+
+ Define the port as an access port, and not a trunk port
+SW1(config-if)# switchport mode access
+
+! Assign the port to VLAN 21
+SW1(config-if)# switchport access vlan 21
+
+! Control the number of MAC addresses the switch may learn
+! from device(s) connected to this switch port
+SW1(config-if)# switchport port-security maximum 2
+
+! Restrict any frames from MAC addresses above the 2 allowed
+SW1(config-if)# switchport port-security violation restrict
+
+! Set the speed to 1,000 Mbps (1 Gigabit per second)
+SW1(config-if)# speed 1000
+
+! Set the duplex to full
+SW1(config-if)# duplex full
+
+! Configure the port to begin forwarding without waiting the
+! standard amount of time normally set by Spanning Tree Protocol
+SW1(config-if)# spanning-tree portfast
+______________________________________________________________________________________________________________
+- - - Trunks - - -
+One challenge with carving up a switch into multiple VLANs is that several switch ports (that is, one port per VLAN) could be consumed by connecting a switch to a switch or a switch to a router. A more efficient approach is to allow traffic for multiple VLANs to travel over a single connection.This type of connection is called a trunk.
+The most common trunking standard is IEEE 802.1Q (dot1q). In this setup, one VLAN is the native VLAN, and its frames are sent untagged (no VLAN tag). Other VLANs are tagged to differentiate them as they travel over the trunk link.
+Specifically, a nonnative VLAN has 4 tag bytes.One of these bytes contains a VLAN field, which indicates to which VLAN a frame belongs. The devices (for example, switch, multilayer switch, router) at each end of a trunk interrogate that field to determine to which VLAN an incoming frame is associated.
+
+______________________________________Trunk Port Configuration________________________________________________
+! Go to interface config mode for interface Gig 0/22
+SW1(config)# interface GigabitEthernet0/22
+
+! Add a text description
+SW1(config-if)# description Trunk to another switch
+
+! Specify that this is a trunk port
+SW1(config-if)# switchport mode trunk
+
+! Specify the trunking protocol to use
+SW1(config-if)# switchport trunk encapsulation dot1q
+
+! Specify the native VLAN to use for un-tagged frames
+SW1(config-if)# switchport trunk native vlan 5
+
+! Specify which VLANs are allowed to go on the trunk
+SW1(config-if)# switchport trunk allowed vlan 1-50
+__________________________________________________________________________________________________________________
