@@ -43,7 +43,7 @@ SW1(config)# interface GigabitEthernet0/21
 ! Add a text description of what the port is used for
 SW1(config-if)# description Access port in Sales VLAN 21
 
- Define the port as an access port, and not a trunk port
+!Define the port as an access port, and not a trunk port
 SW1(config-if)# switchport mode access
 
 ! Assign the port to VLAN 21
@@ -90,3 +90,66 @@ SW1(config-if)# switchport trunk native vlan 5
 ! Specify which VLANs are allowed to go on the trunk
 SW1(config-if)# switchport trunk allowed vlan 1-50
 __________________________________________________________________________________________________________________
+
+- - - Spanning Tree Protocol - - -
+
+To improve network availability at Layer 2, many networks have redundant links between switches. However, unlike Layer 3 packets, Layer 2 frames lack a Time-to-Live (TTL) field. As a result, a Layer 2 frame can circulate endlessly through a looped Layer 2 topology. Fortunately, IEEE 802.1D Spanning Tree Protocol (STP) enables a network to physically have Layer 2 loops while strategically blocking data from flowing over one or more switch ports to prevent the looping of traffic.
+In a network, switches are often connected with extra (redundant) links to make sure the network stays available if one link fails. But this creates a problem: at Layer 2 (the data link layer), frames don’t have a time limit like Layer 3 packets do. So if there’s a loop, the frame can get stuck going around forever.
+
+This causes two big issues: Broadcast Storm and MAC table confusion.
+Broadcast Storm:
+In a network loop, broadcast frames (sent to all devices) keep looping around endlessly. Since switches forward broadcasts, the number of frames grows rapidly, using up bandwidth and overwhelming the network. This is called a broadcast storm.
+MAC Table Confusion:
+Switches use a MAC address table to remember which device is on which port. In a network loop (without STP), the same frame can enter the switch from different ports again and again. This makes the switch keep changing the MAC-port mapping, leading to confusion. As a result, frames get sent to the wrong ports or flooded everywhere, breaking communication.
+
+To solve this, we use Spanning Tree Protocol (STP). It finds loops and blocks some ports so frames don’t loop, while still keeping the backup links available just in case.
+Spanning Tree Protocol (STP) prevents Layer 2 loops in a network, which can lead to broadcast storms and MAC address table corruption. In an STP topology, one switch is elected as the root bridge based on the lowest Bridge ID (BID), which is a combination of priority (default 32768) and MAC address. If priorities are equal, the switch with the lowest MAC address becomes the root. All other switches are called nonroot bridges. STP assigns port roles to avoid loops. Every nonroot bridge has one root port, which is the port with the lowest cost path to the root bridge. Each network segment has one designated port, which is the best path on that segment to reach the root bridge. All ports on the root bridge are designated ports. Ports that are neither root nor designated are called nondesignated ports and are put into a blocking state to prevent loops.
+
+STP uses path cost to determine the best route to the root bridge. Lower cost paths are preferred. For example, a 10Mbps link has a cost of 100, 100Mbps is 19, 1Gbps is 4, and 10Gbps or higher is 2. If two paths have equal cost, the port with the lowest port ID is chosen. STP communicates using Bridge Protocol Data Units (BPDUs), which carry information about bridge IDs, path costs, and are used for loop prevention and recovery.
+
+When a nondesignated (blocked) port needs to transition to an active state, it moves through several states: Blocking (listens to BPDUs for 20 seconds), Listening (sends BPDUs for 15 seconds), Learning (starts building the MAC address table for 15 seconds), and finally Forwarding, where it starts sending and receiving frames.
+- - - Modern Enhancements to STP - - -
+Unlike STP, which can take up to 50 seconds to respond to a topology change, RSTP can achieve convergence in a few seconds, improving the efficiency and reliability of network operations.RSTP introduces the concept of edge ports, which are ports directly connected to end devices and can immediately transition to the forwarding state without going through the traditional listening and learning states. Additionally, RSTP defines alternative and backup ports to handle topology changes more efficiently. An alternative port provides a backup path to the root bridge in case the current path fails, while a backup port offers a redundant connection on a shared LAN segment. These enhancements enable RSTP to quickly adapt to network changes, ensuring minimal disruption to data traffic.
+
+Multiple Spanning Tree Protocol (MSTP), specified in IEEE 802.1s, builds on RSTP to address the scalability issues associated with managing multiple VLANs in large networks. MSTP allows multiple VLANs to be mapped to a single spanning tree instance, reducing the number of spanning tree instances that need to be maintained and managed. This approach simplifies the network design and optimizes resource utilization, as the same spanning tree can handle multiple VLANs with similar traffic patterns and requirements. By grouping VLANs into regions, MSTP enhances network efficiency and simplifies the implementation of VLAN-based network policies.
+
+- - - Link Aggregation - - -
+If all ports on a switch are operating at the same speed (for example, 1Gbps), the ports most likely to experience congestion are ports connecting to another switch or router. For example, imagine a wiring closet switch connected (via Fast Ethernet ports) to multiple PCs. That wiring closet switch has an uplink to the main switch for a building. Because this uplink port aggregates multiple 100Mbps connections and the uplink port is also operating at 100Mbps, it can quickly become congested if multiple PCs are transmitting traffic that needs to be sent over that uplink.To help alleviate congested links between switches, you can (on some) switch models logically combine multiple physical connections into a single logical connection over which traffic can be sent.
+
+Older link aggregation methods had issues like needing manual setup and having each link act as a possible single point of failure. To fix this, the IEEE introduced the 802.3ad standard in 2000, which uses the Link Aggregation Control Protocol (LACP). LACP allows switches to automatically group multiple physical links into one logical link, called a Link Aggregation Group (LAG). If one link fails, traffic is automatically shifted to the other links, improving reliability.
+Use Case Example: Let’s say you have a switch and a server connected with 3 physical cables. With LACP, you can group those 3 cables into 1 logical link (a LAG). If one cable fails, traffic can still go through the other two cables—because it’s still between the same two devices.
+
+Cisco’s version of LACP is called EtherChannel. An EtherChannel can work as a Layer 2 access port (one VLAN), a Layer 2 trunk port (multiple VLANs using 802.1Q), or a Layer 3 interface (with an IP address assigned). The terms LAG, EtherChannel, and port bonding all refer to the same idea: combining multiple physical ports into one logical connection for better performance and redundancy.
+
+____________________________LACP Configuration____________________________
+! Move to interface that will be part of the LACP group
+SW1(config)# interface GigabitEthernet0/16
+
+! Assign this interface to the LACP group 1
+SW1(config-if)# channel-group 1 mode active
+
+! Move to the other interface(s) that will be part of the same group
+SW1(config-if)# interface GigabitEthernet0/17
+SW1(config-if)# channel-group 1 mode active
+
+! Configure the group of interfaces as a logical group
+! Configuration here will also apply the individual interfaces that are part of the group
+SW1(config-if)# interface Port-channel 1
+
+! Apply the configuration desired for the group
+! LACP groups can be access or trunk ports depending on how the configuration of the logical port-channel interface
+! In this example the LAG will be acting as a trunk
+SW1(config-if)# switchport mode trunk
+SW1(config-if)# switchport trunk encapsulation dot1q
+______________________________________________________________________________
+
+- - - PoE(Power over Ethernet) - - -
+Some switches not only transmit data over a connected UTP cable but also use that cable to provide power to an attached device. For example, say that you want to mount a wireless access point (AP) on the ceiling. Although no electrical outlet is available near the AP’s location, you can, as an example, run a Cat 6 UTP plenum cable above the drop ceiling and connect it to the AP. Some APs allow the switch at the other end of the UTP cable to provide power over the same wires that carry data. Examples of other devices that might benefit from receiving power from an Ethernet switch include security cameras and IP phones.
+The switch feature that gives power to attached devices is called Power over Ethernet (PoE), and it is defined by the IEEE 802.3af standard.
+
+
+- - - Other Switch Features - - -
+
+Switch features, such as those previously described, vary widely by manufacturer, and some switches offer a variety of security features. For example, MAC filtering might be supported, which allows traffic to be permitted or denied based on a device’s MAC address. Other types of traffic filtering might also be supported, based on criteria such as IP address information (for multilayer switches).
+For monitoring and troubleshooting purposes, interface diagnostics might be accessible. This diagnostic information might include various error conditions, such as late collisions or cyclic redundancy check (CRC) errors, which might indicate a duplex mismatch.
+Some switches also support quality of service (QoS) settings, which make it possible to forward traffic based on the traffic’s priority markings. Also, some switches have the ability to perform marking and remarking of traffic priority values.
