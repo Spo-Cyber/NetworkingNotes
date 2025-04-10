@@ -1,14 +1,14 @@
 		#Routing Technologies (Chapter 9)
 
 ARP(Address Resolution Protocol) - is a broadcast protocol and, therefore, does not travel out of the sender's local subnet.
-IP routing table: When a router needs to route an IP packet, it consulted its IP routing table to find the best match.The best match is the route that has the longest prefix(greatest number of bits in the subnet mask are set to 1).
+IP routing table: When a router needs to route an IP packet, it consults its IP routing table to find the best match.The best match is the route that has the longest prefix(greatest number of bits in the subnet mask are set to 1).
 Static Routing - A method of manually configuring a network route by specifying fixed paths for data packets to travel within a network.
 Dynamic Routing - The process of distributing network prefix information through a network so that traffic can be forwarded to network destinations.
 - - - - -
 #Routing Protocol Characteristics
 
 RIP(Routing Information Protocol) - Decides for router to send data packet by the shortest path(hop count), without counting bandwidths of other routes.
-OSPF(Open Shortest Path First) - Can consider available bandwidth when making their routing decisions.
+OSPF(Open Shortest Path First) - Consider available bandwidth when making their routing decisions.
 Convergence - The process of failing over from one route to a backup route.
 - - - - -
 #Believability of a Route
@@ -36,7 +36,7 @@ Routing protocols are classified into two main categories based on where they op
 Loop Prevention Methods:
 	1.Split Horizon - Prevents advertising a route back to the source it was learned from.
 	2.Route Poisoning - Marks failed routes as unreachable(e.g. 16 hops in RIP).
-	3.Hold-down Timers - Delays updates to prevent incorrect route changes.
+	3.Hold-down Timers - Delays, to prevent incorrect route changes.
 - - - - - -
 #Link-State Routing Protocols
 Each router builds a topological map of the network instead of relying on neighbors for routes.Routers share LSA(Link-State Advertisements) to exchange network information and construct a complete map.Uses Dijkstra's Shortest Path First(SPF) algorithm to find the best route.Sends updates ONLY WHEN THE NETWORK CHANGES, not periodically.More accurate and scalable than distance-vector protocols, making it ideal for large networks.
@@ -58,7 +58,6 @@ SNAT(Static NAT) - a specific local device is always assigned the same public IP
 PAT(Port Address Translation) - a variant of NAT , where multiple inside local addresses share a single inside global IP address by different port numbers.
 - - - - - - -
 FHRP(First Hop Redundancy Protocols) - ensures network gateway redundancy, allowing multiple routers to act as a single default gateway.If the active router fails, another takes over seamlessly.
-
 HSRP(Hot Standby Router Protocol) - (Cisco Proprietary), uses an active and standby routers.Active router handles traffic, standby takes over if it fails.Uses virtual IP and MAC for seamless failover.
 VRRP(Virtual Router Redundancy Protocol) - (Open Standard), similar to HSRP but vendor-neutral.Uses a master router and multiple backups.Supports up to 255 virtual routers per network.
 CARP(Common Address Redundancy Protocol) - (Open Source),similarly uses master and backup routers.More flexible than VRRP, allowing better customization.
