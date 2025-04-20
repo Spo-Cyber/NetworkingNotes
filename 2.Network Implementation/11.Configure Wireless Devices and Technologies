@@ -3,7 +3,6 @@
 #WLAN Concepts and Components
 
 Enterprise-class WLANs, and even most WLANs in homes, are configured in such a way that a wireless client connects to some sort of wireless base station, such as a wireless access point (AP) or a wireless router. Many companies offer Wi-Fi as a service, and users in range of an AP can use the AP as a hotspot, indicating that Wi-Fi is available through the AP.This communication might be done using a variety of antenna types, frequencies, and communication channels.
-
 - - -
 Wireless Routers
 
@@ -16,7 +15,7 @@ The AP connects to the wired LAN, and the wireless devices that connect to the w
 
 Autonomous access points: These APs are self-contained network devices that manage all wireless network functions independently, without the need for a central controller. They are equipped with built-in capabilities to handle tasks such as service set identifier (SSID) broadcasting, client authentication, security enforcement, and traffic routing. Each autonomous access point operates as a standalone unit, making them suitable for smaller networks or environments where centralized management is not required. They offer flexibility and simplicity, as each device can be individually configured and managed, but this can lead to challenges in large-scale deployments due to the lack of centralized control and increased administrative overhead.
 
-Lightweight access points (LWAPs): These APs are designed to work in conjunction with a central wireless LAN controller (WLC). Unlike autonomous access points that operate independently, LWAPs delegate most of their functionality, such as security policies, SSID configuration, and client authentication, to the controller, simplifying network management and enhancing scalability. They primarily handle the transmission and reception of wireless signals and rely on the controller for complex processing tasks. This architecture allows for centralized management, easier updates, and improved security across the network, making LWAPs ideal for environments with large-scale or dynamic wireless deployments.
+Lightweight access points (LWAPs): These APs are designed to work in conjunction with a central Wireless LAN controller (WLC). Unlike autonomous access points that operate independently, LWAPs delegate most of their functionality, such as security policies, SSID configuration, and client authentication, to the controller, simplifying network management and enhancing scalability. They primarily handle the transmission and reception of wireless signals and rely on the controller for complex processing tasks. This architecture allows for centralized management, easier updates, and improved security across the network, making LWAPs ideal for environments with large-scale or dynamic wireless deployments.
 - - -
 Guest Networks
 
