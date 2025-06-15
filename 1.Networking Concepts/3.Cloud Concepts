@@ -11,7 +11,7 @@ VPC(Virtual Private Cloud) - A virtual network environment within a cloud comput
 - -
 Network Security Groups(Operates on Instance/Subnet Level) - An access control list that protects virtual machine resources in the cloud.This list specifies the type and source of traffic that is permitted to flow into and out of the cloud-based virtual machine.AWS applies a security group by attaching the security group to the vNIC(virtual Network Interface Card) of a virtual machine.This allows the security group to easily control(like firewall) the traffic entering and exiting the virtual machine instance.
 - -
-Network Security Lists(Operates on Subnet Level) - An access control list (in AWS called NACL(network access control list)) that protects entire subnets in a virtual private cloud.These lists seek to control traffic flows into and out of an between subnets in the VPC.
+Network Security Lists(Operates on Subnet Level) - An access control list (in AWS called NACL(network access control list)) that protects entire subnets in a virtual private cloud.These lists seek to control traffic flows into and out of and between subnets in the VPC.
 - -
 Cloud Gateways - Network infrastructure component or service that provides secure and efficient connectivity between on-premises(your local network) networks or devices and cloud-based resources, applications, or services.It helps devices in your local network communicate with cloud applications, storage, or services efficiently.It manages the secure flow of data between your local network and the cloud.It forwards requests from your local network to the cloud and vice versa.Can filter and control access to ensure only authorized traffic reaches the cloud.
 

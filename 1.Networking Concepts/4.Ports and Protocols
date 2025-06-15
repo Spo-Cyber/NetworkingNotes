@@ -1,8 +1,9 @@
 PORTS & PROTOCOLS (Chapter 4)
 
-		| 0 - 1023 (Well-known ports)
-Ports 		| 1024 - 49151 (Registered ports)
-		| 49152 - 65535 (Used dynamically by applications)
+Ports
+| 0 - 1023 (Well-known ports)
+| 1024 - 49151 (Registered ports)
+| 49152 - 65535 (Used dynamically by applications)
 	
 - - -
 FTP (File Transfer Protocol) TCP/20,21 => can be used to transfer files with a remote host (which typically requires authentication of user credentials).It uses TCP ports 20 and 21 in its operation.Unfortunately, FTP users authenticate using clear-text mechanisms.
@@ -11,7 +12,7 @@ SFTP (Secure File Transfer Protocol) TCP/22 => provides FTP file transfer servic
 - - -
 SSH (Secure Shell) TCP/22 => is used to securely connect to a remote host (typically via a terminal emulator).SSH uses TCP port 22 in its operation.
 - - -
-Telnet TCP/23 => is used to connect to a remote host (typically via a terminal emulator).This protocol does not provice security , so has to be used in lab or practice environment.Telnet uses TCP port 23 in its operation.
+Telnet TCP/23 => is used to connect to a remote host (typically via a terminal emulator).This protocol does not provide security , so has to be used in lab or practice environment.Telnet uses TCP port 23 in its operation.
 - - -
 SMTP (Simple Mail Transfer Protocol) TCP/25 => is used for sending email throughout a network.This protocol uses TCP port 25 in its operation.
 - - -

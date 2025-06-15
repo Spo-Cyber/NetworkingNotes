@@ -5,7 +5,7 @@ Network Devices, Applications and Functions👨‍💻 (Chapter 2)
 - - -
 *Switch - Layer 2 device which connects devices on a twisted-pair network.Switches dynamically learn the MAC addresses attached to various ports by looking at the source MAC addresses on frames coming into a port.A switch forwards data to its destination by using the MAC address embedded in each packet. It forwards data only to nodes that need to receive it.When a switch receives a frame destined for a MAC address not yet present in the switch's MAC address table, the switch floods that frame out all the switch ports except the port on which the frame was received.
 - - -
-*Multlayer Switch - Functions as a switch or router.Operates on Layers 2 and 3 of the OSI model as a switch and can perform router functionality(by making forwarding decisions).
+*Multilayer Switch - Functions as a switch or router.Operates on Layers 2 and 3 of the OSI model as a switch and can perform router functionality(by making forwarding decisions).
 - - -
 *Firewall - Provides controlled data access between networks.Firewalls can be hardware or software based. They are an essential part of a network’s security strategy.Firewall appliance stands guard at the door of the network, protecting it from malicious Internet traffic.
 - - -
